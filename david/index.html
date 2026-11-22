@@ -1,78 +1,342 @@
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-  <title>Mi perfil creativo</title>
-  <link rel="stylesheet" href="estilos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi perfil creativo | David Agila</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
-
 <body>
 
-  <!-- Presentación principal -->
-  <header>
-    <h1>David Agila</h1>
-    <p>Diseño · Tecnología · Experiencias Digitales</p>
-  </header>
+    <header class="cabecera">
+        <nav class="navegacion">
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#multimedia">Multimedia</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
 
-  <main>
+        <div class="presentacion">
+            <p class="etiqueta">PORTAFOLIO PERSONAL</p>
+            <h1>Hola, soy <span>David Agila</span></h1>
+            <p>Diseño · Tecnología · Experiencias Digitales</p>
+            <a class="boton" href="#sobre-mi">Conóceme</a>
+        </div>
+    </header>
 
-    <!-- Sobre mí -->
-    <section>
-      <h2>Sobre mí</h2>
+    <main>
 
-      <img src="mi-arte-canvas (2).png"
-           alt="Mi identidad creativa">
+        <section id="sobre-mi" class="seccion destacada">
+            <div class="texto">
+                <p class="etiqueta">UN POCO SOBRE MÍ</p>
+                <h2>Sobre mí</h2>
+                <p>
+                    Soy estudiante de <strong>Diseño Multimedia</strong>.
+                    Me apasionan la <em>creatividad digital</em>, la tecnología
+                    y las experiencias interactivas. Me gusta aprender nuevas
+                    herramientas y convertir mis ideas en proyectos visuales.
+                </p>
+            </div>
 
-      <p>
-        Soy estudiante de <strong>Diseño Multimedia</strong>.
-        Me apasionan la <em>creatividad digital</em>
-        y las experiencias interactivas.
-      </p>
-    </section>
+            <img class="foto-perfil"
+                 src="Toga.jpg"
+                 alt="Fotografía de David Agila">
+        </section>
 
-    <!-- Intereses -->
-    <section>
-      <h2>Lo que me interesa crear</h2>
-      <ul>
-        <li>Experiencias interactivas</li>
-        <li>Animaciones</li>
-        <li>Interfaces digitales</li>
-        <li>Videojuegos</li>
-        <li>Realidad aumentada</li>
-      </ul>
-    </section>
+        <section class="seccion">
+            <p class="etiqueta">INSPIRACIÓN</p>
+            <h2>Lo que me interesa crear</h2>
 
-    <!-- Proceso creativo -->
-    <section>
-      <h2>Mi proceso creativo</h2>
-      <ol>
-        <li>Investigar</li>
-        <li>Imaginar</li>
-        <li>Diseñar</li>
-        <li>Programar</li>
-        <li>Probar</li>
-      </ol>
-    </section>
+            <div class="intereses">
+                <article class="interes">
+                    ✦
+                    <h3>Experiencias interactivas</h3>
+                </article>
 
-    <!-- Referencias -->
-    <section>
-      <h2>Recursos</h2>
-      <p>
-        Cuando necesito consultar etiquetas utilizo
-        <a href="https://www.w3schools.com/html/">
-          W3Schools
-        </a>.
-      </p>
-    </section>
+                <article class="interes">
+                    ✦
+                    <h3>Animaciones</h3>
+                </article>
 
-  </main>
+                <article class="interes">
+                    ✦
+                    <h3>Interfaces digitales</h3>
+                </article>
 
-  <footer>
-    <p>Programación Aplicada a la Multimedia · 2026</p>
-  </footer>
+                <article class="interes">
+                    ✦
+                    <h3>Videojuegos</h3>
+                </article>
+
+                <article class="interes">
+                    ✦
+                    <h3>Realidad aumentada</h3>
+                </article>
+            </div>
+        </section>
+
+        <section id="proyectos" class="seccion">
+            <p class="etiqueta">MI TRABAJO</p>
+            <h2>Galería de proyectos</h2>
+            <p class="descripcion">
+                Algunos ejemplos de mis ideas y trabajos creativos.
+            </p>
+
+            <div class="galeria">
+                <figure>
+                    <img src="imagenes/proyecto1.jpg"
+                         alt="Ilustración de mi primer proyecto">
+
+                    <figcaption>
+                        Figura 1. Mi primer proyecto digital.
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="subida">
+                <label for="subirFotos" class="boton">
+                    ＋ Agregar mis fotografías
+                </label>
+
+                <input type="file"
+                       id="subirFotos"
+                       accept="image/*"
+                       multiple>
+
+                <div id="galeriaUsuario"
+                     class="galeria galeria-usuario">
+                </div>
+            </div>
+        </section>
+
+        <section id="multimedia" class="seccion">
+            <p class="etiqueta">SONIDO E IMAGEN EN MOVIMIENTO</p>
+            <h2>Mi espacio multimedia</h2>
+
+            <div class="multimedia-grid">
+
+                <article class="tarjeta">
+                    <h3>♫ Un poco de música</h3>
+                    <p>Una canción que quiero compartir.</p>
+
+                    <audio controls>
+                        <source
+                            src="audio/Bad-Bunny-DtMF-_Instrumental_.mp3"
+                            type="audio/mpeg">
+
+                        Tu navegador no soporta audio HTML5.
+                    </audio>
+
+                    <h4>Agregar otros audios</h4>
+
+                    <label for="subirAudios" class="boton">
+                        ＋ Seleccionar audios
+                    </label>
+
+                    <input type="file"
+                           id="subirAudios"
+                           accept="audio/*"
+                           multiple>
+
+                    <div id="listaAudios" class="lista-audios"></div>
+                </article>
+
+                <article class="tarjeta">
+                    <h3>▶ Presentación de mi proyecto</h3>
+                    <p>Un video de una de mis escenas.</p>
+
+                    <video controls
+                           poster="imagenes/portada-video.jpg">
+
+                        <source
+                            src="Videos/Escena Llegada.mp4"
+                            type="video/mp4">
+
+                        Tu navegador no soporta video HTML5.
+                    </video>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="seccion">
+            <p class="etiqueta">DE LA IDEA AL RESULTADO</p>
+            <h2>Mi proceso creativo</h2>
+
+            <ol class="proceso">
+                <li>Investigar</li>
+                <li>Imaginar</li>
+                <li>Diseñar</li>
+                <li>Programar</li>
+                <li>Probar</li>
+            </ol>
+        </section>
+
+        <section class="seccion ilustraciones">
+            <p class="etiqueta">DIBUJO CON CÓDIGO</p>
+            <h2>Mis ilustraciones</h2>
+
+            <p class="descripcion">
+                Este paisaje está creado utilizando figuras geométricas
+                con JavaScript y Canvas.
+            </p>
+
+            <canvas id="miCanvas" width="600" height="350">
+                Tu navegador no soporta Canvas.
+            </canvas>
+
+            <button id="redibujar" class="boton" type="button">
+                Crear otro paisaje
+            </button>
+        </section>
+
+        <section class="seccion recursos">
+            <h2>Recursos</h2>
+
+            <p>
+                Cuando necesito consultar etiquetas HTML utilizo
+                <a href="https://www.w3schools.com/html/"
+                   target="_blank"
+                   rel="noopener">
+                    W3Schools
+                </a>.
+            </p>
+        </section>
+
+        <section id="contacto" class="seccion contacto">
+            <p class="etiqueta">HABLEMOS</p>
+            <h2>Contáctame</h2>
+
+            <p class="descripcion">
+                Completa este formulario para compartir una idea o proyecto.
+            </p>
+
+            <form id="formularioContacto">
+
+                <div class="campos">
+
+                    <div class="campo">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text"
+                               id="nombre"
+                               name="nombre"
+                               placeholder="Escribe tu nombre"
+                               required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="correo">Correo:</label>
+                        <input type="email"
+                               id="correo"
+                               name="correo"
+                               placeholder="ejemplo@correo.com"
+                               required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="edad">Edad:</label>
+                        <input type="number"
+                               id="edad"
+                               name="edad"
+                               min="1"
+                               max="120">
+                    </div>
+
+                    <div class="campo">
+                        <label for="fecha">Fecha:</label>
+                        <input type="date"
+                               id="fecha"
+                               name="fecha">
+                    </div>
+
+                    <div class="campo campo-completo">
+                        <label for="interes">Área de interés:</label>
+
+                        <select id="interes" name="interes" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="rv">Realidad virtual</option>
+                            <option value="animacion">Animación 3D</option>
+                            <option value="web">Diseño web</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <fieldset>
+                    <legend>Modalidad de contacto</legend>
+
+                    <label>
+                        <input type="radio"
+                               name="modalidad"
+                               value="virtual"
+                               required>
+                        Virtual
+                    </label>
+
+                    <label>
+                        <input type="radio"
+                               name="modalidad"
+                               value="presencial">
+                        Presencial
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Mis intereses</legend>
+
+                    <label>
+                        <input type="checkbox"
+                               name="intereses"
+                               value="videojuegos">
+                        Videojuegos
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               name="intereses"
+                               value="animacion">
+                        Animación
+                    </label>
+
+                    <label>
+                        <input type="checkbox"
+                               name="intereses"
+                               value="web">
+                        Diseño web
+                    </label>
+                </fieldset>
+
+                <div class="campo">
+                    <label for="mensaje">Cuéntame tu idea:</label>
+
+                    <textarea id="mensaje"
+                              name="mensaje"
+                              rows="5"
+                              placeholder="Describe tu proyecto creativo..."
+                              required></textarea>
+                </div>
+
+                <button type="submit" class="boton">
+                    Enviar formulario
+                </button>
+
+                <p id="respuestaFormulario"
+                   class="respuesta"
+                   aria-live="polite">
+                </p>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>David Agila · Programación Aplicada a la Multimedia · 2026</p>
+    </footer>
+
+    <script src="Canvas.js"></script>
 
 </body>
 </html>
+
