@@ -1,11 +1,11 @@
 
 /* ==========================================
-   WENDY CAGUAMAS — INTERACTIONS
+   WENDY CAGUAMAS — INTERACTIVE SCRIPT
 ========================================== */
 
 
 /* ==========================================
-   1. MENÚ RESPONSIVE
+   1. MOBILE MENU
 ========================================== */
 
 const menuToggle = document.getElementById("menu-toggle");
@@ -23,16 +23,16 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
 
 /* ==========================================
-   2. NAVEGACIÓN ACTIVA
+   2. ACTIVE NAVIGATION
 ========================================== */
 
-const sections = document.querySelectorAll("main section[id]");
-const navigationLinks = document.querySelectorAll(".nav-links a");
+const observedSections = document.querySelectorAll("main section[id]");
+const navItems = document.querySelectorAll(".nav-links a");
 
-const sectionObserver = new IntersectionObserver(entries => {
+const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            navigationLinks.forEach(link => {
+            navItems.forEach(link => {
                 link.classList.toggle(
                     "active",
                     link.getAttribute("href") === `#${entry.target.id}`
@@ -41,68 +41,72 @@ const sectionObserver = new IntersectionObserver(entries => {
         }
     });
 }, {
-    threshold: 0.25
+    threshold: 0.35
 });
 
-sections.forEach(section => {
-    sectionObserver.observe(section);
-});
+observedSections.forEach(section => observer.observe(section));
 
 
 /* ==========================================
-   3. CONFIGURACIÓN DEL CANVAS
+   3. CANVAS SETUP
 ========================================== */
 
 const canvas = document.getElementById("art-canvas");
 const ctx = canvas.getContext("2d");
 
-const WIDTH = 720;
-const HEIGHT = 850;
+const W = canvas.width;
+const H = canvas.height;
 
-let currentPalette = 0;
+let paletteIndex = 0;
 let generation = 1;
+let characterStyle = 0;
+let flowers = [];
+let animationFrame;
+
+
+/* ==========================================
+   4. COLOR PALETTES
+========================================== */
 
 const palettes = [
     {
-        name: "Green Garden",
         background: "#dce9b3",
-        backgroundDark: "#b5cd83",
-        primary: "#526d3d",
-        secondary: "#8ca95b",
-        accent: "#d3a3a8",
+        background2: "#b8d18b",
+        dark: "#405b38",
+        hair: "#344b37",
+        hairLight: "#66834d",
         skin: "#f1c9ad",
-        skinShadow: "#d99f87",
-        hair: "#354c37",
-        hairLight: "#617c4d",
-        clothes: "#78975a",
-        clothesLight: "#b6ca88",
-        eye: "#536f46",
-        flower: "#f3d9d2",
-        detail: "#35452e"
+        skinShade: "#dcaa91",
+        eyes: "#587c4b",
+        clothes: "#789b59",
+        clothesLight: "#b4ca87",
+        flower: "#fff0df",
+        flowerCenter: "#e4a5a9",
+        leaf: "#6f9951",
+        text: "#405b38"
     },
 
     {
-        name: "Pink Dreams",
-        background: "#f1dce2",
-        backgroundDark: "#e2b9c8",
-        primary: "#76536b",
-        secondary: "#b47d9a",
-        accent: "#a5a6d1",
+        background: "#f2dce5",
+        background2: "#e2b9ca",
+        dark: "#76516d",
+        hair: "#63445e",
+        hairLight: "#a8799b",
         skin: "#f3cdbb",
-        skinShadow: "#dca18f",
-        hair: "#63445f",
-        hairLight: "#a8789c",
-        clothes: "#a87d9e",
-        clothesLight: "#d9b2c6",
-        eye: "#76536b",
-        flower: "#fff0e9",
-        detail: "#60465d"
+        skinShade: "#dca18f",
+        eyes: "#806080",
+        clothes: "#ae7c9d",
+        clothesLight: "#dfb8cd",
+        flower: "#fff5f0",
+        flowerCenter: "#d58ca9",
+        leaf: "#9b829e",
+        text: "#76516d"
     }
 ];
 
 
 /* ==========================================
-   4. FUNCIONES AUXILIARES
+   5. HELPER FUNCTIONS
 ========================================== */
 
 function random(min, max) {
@@ -113,36 +117,13 @@ function randomInt(min, max) {
     return Math.floor(random(min, max + 1));
 }
 
-function choose(array) {
+function pick(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
 function circle(x, y, radius, color) {
     ctx.beginPath();
     ctx.arc(x, y, radius, 0, Math.PI * 2);
-    ctx.fillStyle = color;
-    ctx.fill();
-}
-
-function line(x1, y1, x2, y2, color, width = 2) {
-    ctx.beginPath();
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(x2, y2);
-    ctx.strokeStyle = color;
-    ctx.lineWidth = width;
-    ctx.stroke();
-}
-
-function polygon(points, color) {
-    ctx.beginPath();
-
-    ctx.moveTo(points[0][0], points[0][1]);
-
-    for (let i = 1; i < points.length; i++) {
-        ctx.lineTo(points[i][0], points[i][1]);
-    }
-
-    ctx.closePath();
     ctx.fillStyle = color;
     ctx.fill();
 }
@@ -154,496 +135,539 @@ function ellipse(x, y, rx, ry, color) {
     ctx.fill();
 }
 
-function drawText(text, x, y, size, color, font = "DM Mono") {
+function polygon(points, color) {
+    ctx.beginPath();
+    ctx.moveTo(points[0][0], points[0][1]);
+
+    points.slice(1).forEach(point => {
+        ctx.lineTo(point[0], point[1]);
+    });
+
+    ctx.closePath();
     ctx.fillStyle = color;
-    ctx.font = `${size}px "${font}"`;
-    ctx.fillText(text, x, y);
+    ctx.fill();
 }
 
-
-/* ==========================================
-   5. FONDO Y COMPOSICIÓN
-========================================== */
-
-function drawBackground(p) {
-
-    const gradient = ctx.createLinearGradient(0, 0, WIDTH, HEIGHT);
-
-    gradient.addColorStop(0, p.background);
-    gradient.addColorStop(1, p.backgroundDark);
-
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
-    // Marco exterior
-    ctx.strokeStyle = p.primary;
-    ctx.lineWidth = 2;
-    ctx.strokeRect(24, 24, WIDTH - 48, HEIGHT - 48);
-
-    // Marco interior
-    ctx.strokeStyle = p.secondary;
-    ctx.lineWidth = 1;
-    ctx.strokeRect(36, 36, WIDTH - 72, HEIGHT - 72);
-
-    // Formas decorativas
-    circle(80, 100, 42, p.flower);
-    circle(640, 735, 58, p.accent);
-
-    // Círculo decorativo
+function strokeLine(x1, y1, x2, y2, color, width = 2) {
     ctx.beginPath();
-    ctx.arc(360, 390, 245, 0, Math.PI * 2);
-    ctx.strokeStyle = p.secondary;
-    ctx.lineWidth = 2;
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = width;
     ctx.stroke();
 }
 
 
 /* ==========================================
-   6. ESTRELLAS Y DETALLES
+   6. BACKGROUND
 ========================================== */
 
-function drawStar(x, y, size, color) {
+function drawBackground(p) {
+    const gradient = ctx.createLinearGradient(0, 0, W, H);
 
+    gradient.addColorStop(0, p.background);
+    gradient.addColorStop(1, p.background2);
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, W, H);
+
+    // Decorative circles
+    circle(90, 150, 45, p.flower);
+    circle(630, 670, 65, p.background2);
+
+    // Main frame
+    ctx.strokeStyle = p.dark;
+    ctx.lineWidth = 2;
+    ctx.strokeRect(25, 25, W - 50, H - 50);
+
+    ctx.strokeStyle = `${p.dark}66`;
+    ctx.lineWidth = 1;
+    ctx.strokeRect(38, 38, W - 76, H - 76);
+
+    // Decorative orbit
+    ctx.beginPath();
+    ctx.ellipse(360, 390, 260, 310, -0.2, 0, Math.PI * 2);
+    ctx.strokeStyle = `${p.dark}55`;
+    ctx.stroke();
+}
+
+
+/* ==========================================
+   7. FLOWER DRAWING
+========================================== */
+
+function drawFlower(x, y, size, color, center, rotation = 0) {
     ctx.save();
     ctx.translate(x, y);
-    ctx.fillStyle = color;
+    ctx.rotate(rotation);
 
-    ctx.beginPath();
+    for (let i = 0; i < 6; i++) {
+        const angle = (Math.PI * 2 / 6) * i;
 
-    for (let i = 0; i < 8; i++) {
-        const angle = (Math.PI * 2 / 8) * i;
-        const radius = i % 2 === 0 ? size : size * 0.3;
+        const px = Math.cos(angle) * size * 0.62;
+        const py = Math.sin(angle) * size * 0.62;
 
-        const px = Math.cos(angle) * radius;
-        const py = Math.sin(angle) * radius;
-
-        if (i === 0) {
-            ctx.moveTo(px, py);
-        } else {
-            ctx.lineTo(px, py);
-        }
+        ellipse(px, py, size * 0.43, size * 0.3, color);
     }
 
-    ctx.closePath();
-    ctx.fill();
+    circle(0, 0, size * 0.25, center);
 
     ctx.restore();
 }
 
 
 /* ==========================================
-   7. HOJAS Y FLORES
+   8. LEAF DRAWING
 ========================================== */
 
 function drawLeaf(x, y, size, angle, color) {
-
     ctx.save();
     ctx.translate(x, y);
     ctx.rotate(angle);
 
     ctx.beginPath();
     ctx.moveTo(0, 0);
-    ctx.quadraticCurveTo(size, -size, size * 1.5, 0);
+    ctx.quadraticCurveTo(size, -size, size * 1.6, 0);
     ctx.quadraticCurveTo(size, size, 0, 0);
 
     ctx.fillStyle = color;
     ctx.fill();
 
-    line(0, 0, size * 1.3, 0, "#ffffff66", 1);
+    strokeLine(0, 0, size * 1.4, 0, "#ffffff55", 1);
 
     ctx.restore();
 }
 
-function drawFlower(x, y, size, color, centerColor) {
 
-    for (let i = 0; i < 6; i++) {
-        const angle = (Math.PI * 2 / 6) * i;
+/* ==========================================
+   9. CREATE ANIMATED FLOWERS
+========================================== */
 
-        const px = x + Math.cos(angle) * size * 0.65;
-        const py = y + Math.sin(angle) * size * 0.65;
+function createFlowers() {
+    flowers = [];
 
-        ellipse(px, py, size * 0.4, size * 0.4, color);
+    // 18 animated flowers
+    for (let i = 0; i < 18; i++) {
+        flowers.push({
+            x: random(45, W - 45),
+            y: random(70, H - 70),
+            size: random(7, 17),
+            speed: random(0.25, 0.8),
+            rotation: random(0, Math.PI * 2),
+            rotationSpeed: random(-0.012, 0.012),
+            sway: random(0.5, 1.8),
+            phase: random(0, Math.PI * 2),
+            colorType: randomInt(0, 1)
+        });
     }
-
-    circle(x, y, size * 0.28, centerColor);
 }
 
 
 /* ==========================================
-   8. DECORACIONES ALEATORIAS
+   10. ANIMATE FLOWERS
 ========================================== */
 
-function drawDecorations(p) {
+function animateFlowers(p) {
+    flowers.forEach(flower => {
 
-    // 20 elementos decorativos generados aleatoriamente
-    for (let i = 0; i < 24; i++) {
+        flower.y -= flower.speed;
+        flower.x += Math.sin(flower.phase) * flower.sway;
 
-        const x = random(65, WIDTH - 65);
-        const y = random(110, HEIGHT - 110);
-        const size = random(7, 20);
+        flower.phase += 0.018;
+        flower.rotation += flower.rotationSpeed;
 
-        if (i % 3 === 0) {
-            drawFlower(x, y, size, p.flower, p.accent);
-        } else if (i % 3 === 1) {
-            drawLeaf(x, y, size, random(-2, 2), p.primary);
-        } else {
-            drawStar(x, y, size, p.flower);
+        // Return flower to the bottom
+        if (flower.y < 45) {
+            flower.y = H - 45;
+            flower.x = random(45, W - 45);
         }
+
+        const color = flower.colorType === 0
+            ? p.flower
+            : p.leaf;
+
+        drawFlower(
+            flower.x,
+            flower.y,
+            flower.size,
+            color,
+            p.flowerCenter,
+            flower.rotation
+        );
+    });
+}
+
+
+/* ==========================================
+   11. STATIC BOTANICAL DETAILS
+========================================== */
+
+function drawBotanicalDetails(p) {
+
+    for (let i = 0; i < 12; i++) {
+        const x = random(55, W - 55);
+        const y = random(100, H - 100);
+
+        drawLeaf(
+            x,
+            y,
+            random(10, 22),
+            random(-2, 2),
+            p.leaf
+        );
     }
 
-    // Pequeños puntos
-    for (let i = 0; i < 35; i++) {
+    for (let i = 0; i < 20; i++) {
         circle(
-            random(50, WIDTH - 50),
-            random(90, HEIGHT - 90),
+            random(50, W - 50),
+            random(80, H - 80),
             random(1, 3),
-            p.primary
+            p.dark
         );
     }
 }
 
 
 /* ==========================================
-   9. CABELLO POSTERIOR
+   12. BACK HAIR
 ========================================== */
 
-function drawBackHair(p, style) {
-
+function drawBackHair(p) {
     ctx.fillStyle = p.hair;
 
     ctx.beginPath();
-    ctx.moveTo(250, 300);
-    ctx.quadraticCurveTo(180, 180, 360, 180);
-    ctx.quadraticCurveTo(540, 180, 490, 370);
-    ctx.lineTo(480, 590);
-    ctx.quadraticCurveTo(445, 650, 420, 550);
-    ctx.lineTo(390, 610);
-    ctx.lineTo(360, 535);
-    ctx.lineTo(320, 615);
-    ctx.lineTo(290, 535);
-    ctx.lineTo(245, 590);
-    ctx.lineTo(250, 390);
+    ctx.moveTo(250, 315);
+    ctx.quadraticCurveTo(195, 170, 355, 180);
+    ctx.quadraticCurveTo(520, 175, 475, 350);
+    ctx.lineTo(490, 565);
+    ctx.lineTo(440, 530);
+    ctx.lineTo(415, 610);
+    ctx.lineTo(380, 535);
+    ctx.lineTo(345, 610);
+    ctx.lineTo(305, 530);
+    ctx.lineTo(255, 575);
     ctx.closePath();
     ctx.fill();
 
-    // Mechones de cabello
-    for (let i = 0; i < 7; i++) {
-
-        const x = 255 + i * 31;
-
-        ctx.beginPath();
-        ctx.moveTo(x, 270);
-        ctx.quadraticCurveTo(
-            x + random(-20, 20),
-            410,
-            x + random(-25, 25),
-            530
+    for (let i = 0; i < 6; i++) {
+        strokeLine(
+            275 + i * 28,
+            300,
+            280 + i * 27,
+            510 + random(-20, 20),
+            p.hairLight,
+            5
         );
-
-        ctx.strokeStyle = p.hairLight;
-        ctx.lineWidth = 5;
-        ctx.stroke();
-    }
-
-    if (style === 1) {
-        ellipse(360, 205, 115, 45, p.hair);
-    }
-
-    if (style === 2) {
-        drawFlower(465, 255, 24, p.flower, p.accent);
     }
 }
 
 
 /* ==========================================
-   10. CUERPO Y ROPA
+   13. BODY AND CLOTHES
 ========================================== */
 
 function drawBody(p) {
 
-    // Cuello
+    // Neck
     ctx.fillStyle = p.skin;
-    ctx.fillRect(327, 445, 66, 90);
+    ctx.fillRect(326, 440, 68, 90);
 
-    // Cuello de la ropa
+    // Shoulders and outfit
     polygon([
-        [315, 495],
-        [360, 530],
-        [405, 495],
-        [465, 690],
-        [255, 690]
-    ], p.clothesLight);
+        [325, 485],
+        [395, 485],
+        [435, 515],
+        [485, 700],
+        [235, 700],
+        [285, 515]
+    ], p.clothes);
 
-    // Cuerpo
-    ctx.fillStyle = p.clothes;
-
-    ctx.beginPath();
-    ctx.moveTo(300, 500);
-    ctx.quadraticCurveTo(250, 510, 230, 690);
-    ctx.lineTo(490, 690);
-    ctx.quadraticCurveTo(470, 510, 420, 500);
-    ctx.quadraticCurveTo(360, 540, 300, 500);
-    ctx.fill();
-
-    // Mangas
+    // Sleeves
     polygon([
-        [300, 510],
-        [250, 530],
-        [210, 635],
-        [255, 650],
+        [290, 510],
+        [245, 535],
+        [210, 640],
+        [260, 655],
         [315, 560]
     ], p.clothesLight);
 
     polygon([
-        [420, 510],
-        [470, 530],
-        [510, 635],
-        [465, 650],
+        [430, 510],
+        [475, 535],
+        [510, 640],
+        [460, 655],
         [405, 560]
     ], p.clothesLight);
 
-    // Detalles de la ropa
+    // Collar
     polygon([
-        [340, 535],
-        [360, 565],
-        [380, 535],
-        [370, 620],
-        [350, 620]
-    ], p.accent);
+        [315, 490],
+        [360, 535],
+        [405, 490],
+        [385, 575],
+        [335, 575]
+    ], p.clothesLight);
 
-    line(360, 570, 360, 675, p.primary, 2);
+    // Ribbon
+    polygon([
+        [360, 530],
+        [335, 550],
+        [350, 575],
+        [360, 562],
+        [370, 575],
+        [385, 550]
+    ], p.flowerCenter);
 
-    // Brazos
-    ellipse(232, 640, 22, 55, p.skin);
-    ellipse(488, 640, 22, 55, p.skin);
+    // Arms
+    ellipse(235, 655, 19, 48, p.skin);
+    ellipse(485, 655, 19, 48, p.skin);
 
-    // Manos
-    ellipse(232, 690, 18, 23, p.skin);
-    ellipse(488, 690, 18, 23, p.skin);
+    // Hands
+    ellipse(235, 698, 16, 19, p.skin);
+    ellipse(485, 698, 16, 19, p.skin);
+
+    // Outfit details
+    for (let i = 0; i < 4; i++) {
+        circle(360, 600 + i * 19, 3, p.flower);
+    }
 }
 
 
 /* ==========================================
-   11. ROSTRO
+   14. FACE
 ========================================== */
 
-function drawFace(p, expression) {
+function drawFace(p) {
 
-    // Orejas
-    ellipse(270, 350, 22, 35, p.skin);
-    ellipse(450, 350, 22, 35, p.skin);
+    // Ears
+    ellipse(270, 345, 20, 31, p.skin);
+    ellipse(450, 345, 20, 31, p.skin);
 
-    // Rostro
+    // Face
     ctx.fillStyle = p.skin;
 
     ctx.beginPath();
-    ctx.moveTo(260, 270);
-    ctx.quadraticCurveTo(360, 205, 460, 270);
+    ctx.moveTo(265, 260);
+    ctx.quadraticCurveTo(360, 205, 455, 260);
     ctx.lineTo(440, 410);
-    ctx.quadraticCurveTo(360, 490, 280, 410);
+    ctx.quadraticCurveTo(360, 480, 280, 410);
     ctx.closePath();
     ctx.fill();
 
-    // Sombras de mejillas
-    ellipse(295, 390, 22, 9, p.skinShadow);
-    ellipse(425, 390, 22, 9, p.skinShadow);
+    // Cheeks
+    ellipse(298, 385, 22, 9, p.skinShade);
+    ellipse(422, 385, 22, 9, p.skinShade);
 
-    // Ojos
-    const eyeY = expression === 1 ? 360 : 355;
+    // Eyes
+    ellipse(315, 350, 20, 27, "#fff9f0");
+    ellipse(405, 350, 20, 27, "#fff9f0");
 
-    // Ojo izquierdo
-    ellipse(315, eyeY, 19, 27, "#fff8ed");
-    ellipse(405, eyeY, 19, 27, "#fff8ed");
+    ellipse(317, 354, 12, 21, p.eyes);
+    ellipse(407, 354, 12, 21, p.eyes);
 
-    ellipse(317, eyeY + 3, 11, 20, p.eye);
-    ellipse(407, eyeY + 3, 11, 20, p.eye);
+    ellipse(317, 359, 6, 13, "#252b22");
+    ellipse(407, 359, 6, 13, "#252b22");
 
-    ellipse(317, eyeY + 7, 5, 10, "#252b27");
-    ellipse(407, eyeY + 7, 5, 10, "#252b27");
+    circle(322, 344, 5, "#ffffff");
+    circle(412, 344, 5, "#ffffff");
 
-    circle(321, eyeY - 5, 5, "#ffffff");
-    circle(411, eyeY - 5, 5, "#ffffff");
+    // Eyelashes
+    strokeLine(295, 335, 285, 325, p.hair, 3);
+    strokeLine(425, 335, 435, 325, p.hair, 3);
 
-    // Pestañas
-    line(296, eyeY - 15, 286, eyeY - 24, p.hair, 3);
-    line(424, eyeY - 15, 434, eyeY - 24, p.hair, 3);
+    // Eyebrows
+    strokeLine(297, 313, 335, 308, p.hair, 4);
+    strokeLine(385, 308, 423, 313, p.hair, 4);
 
-    // Cejas
-    line(298, 320, 335, 315, p.hair, 4);
-    line(385, 315, 422, 320, p.hair, 4);
+    // Nose
+    strokeLine(360, 367, 355, 385, p.skinShade, 2);
 
-    // Nariz
-    line(360, 368, 355, 388, p.skinShadow, 2);
-
-    // Boca
+    // Smile
     ctx.beginPath();
-
-    if (expression === 1) {
-        ctx.arc(360, 404, 10, 0.1, Math.PI - 0.1);
-    } else {
-        ctx.arc(360, 397, 11, 0.1, Math.PI - 0.1);
-    }
-
-    ctx.strokeStyle = "#9e625e";
+    ctx.arc(360, 399, 12, 0.15, Math.PI - 0.15);
+    ctx.strokeStyle = "#a35e62";
     ctx.lineWidth = 2;
     ctx.stroke();
 }
 
 
 /* ==========================================
-   12. CABELLO FRONTAL
+   15. FRONT HAIR
 ========================================== */
 
-function drawFrontHair(p, style) {
+function drawFrontHair(p) {
 
     ctx.fillStyle = p.hair;
 
-    // Parte superior
     ctx.beginPath();
-    ctx.moveTo(260, 330);
-    ctx.quadraticCurveTo(215, 210, 350, 205);
-    ctx.quadraticCurveTo(470, 185, 465, 315);
-    ctx.quadraticCurveTo(420, 280, 390, 260);
-    ctx.quadraticCurveTo(365, 320, 350, 330);
-    ctx.quadraticCurveTo(340, 285, 325, 270);
-    ctx.quadraticCurveTo(310, 320, 280, 335);
+    ctx.moveTo(255, 335);
+    ctx.quadraticCurveTo(220, 210, 350, 195);
+    ctx.quadraticCurveTo(480, 185, 465, 330);
+    ctx.quadraticCurveTo(430, 285, 400, 260);
+    ctx.quadraticCurveTo(375, 320, 350, 330);
+    ctx.quadraticCurveTo(340, 280, 325, 265);
+    ctx.quadraticCurveTo(305, 325, 270, 350);
     ctx.closePath();
     ctx.fill();
 
-    // Mechones
-    if (style === 0) {
-        polygon([
-            [270, 280],
-            [320, 250],
-            [330, 355],
-            [295, 325]
-        ], p.hairLight);
+    // Bangs
+    polygon([
+        [270, 270],
+        [330, 230],
+        [330, 350],
+        [295, 325]
+    ], p.hairLight);
 
-        polygon([
-            [390, 250],
-            [440, 275],
-            [420, 355],
-            [395, 325]
-        ], p.hairLight);
-    } else if (style === 1) {
-        polygon([
-            [275, 260],
-            [355, 235],
-            [350, 350],
-            [320, 325]
-        ], p.hairLight);
+    polygon([
+        [330, 230],
+        [390, 235],
+        [375, 340],
+        [350, 315]
+    ], p.hair);
 
-        polygon([
-            [355, 235],
-            [445, 270],
-            [405, 340],
-            [380, 300]
-        ], p.hairLight);
+    polygon([
+        [390, 235],
+        [445, 275],
+        [420, 350],
+        [395, 320]
+    ], p.hairLight);
+
+    // Hair accessory
+    if (characterStyle === 1) {
+        drawFlower(445, 278, 18, p.flower, p.flowerCenter);
     } else {
-        polygon([
-            [260, 280],
-            [335, 230],
-            [345, 350],
-            [300, 320]
-        ], p.hairLight);
-
-        polygon([
-            [390, 240],
-            [460, 285],
-            [420, 355],
-            [400, 320]
-        ], p.hairLight);
-    }
-
-    // Accesorio
-    if (style === 2) {
-        drawFlower(445, 280, 17, p.flower, p.accent);
+        drawFlower(280, 280, 13, p.flower, p.flowerCenter);
     }
 }
 
 
 /* ==========================================
-   13. DETALLES DEL PERSONAJE
+   16. CHARACTER DECORATIONS
 ========================================== */
 
 function drawCharacterDetails(p) {
 
-    // Collar
-    line(325, 500, 360, 530, p.primary, 3);
-    line(395, 500, 360, 530, p.primary, 3);
+    // Earrings
+    circle(270, 380, 5, p.flowerCenter);
+    circle(450, 380, 5, p.flowerCenter);
 
-    // Colgante
-    drawFlower(360, 548, 9, p.flower, p.accent);
+    // Necklace
+    strokeLine(325, 500, 360, 535, p.dark, 2);
+    strokeLine(395, 500, 360, 535, p.dark, 2);
 
-    // Pequeñas flores decorativas
-    drawFlower(290, 560, 11, p.flower, p.accent);
-    drawFlower(430, 570, 11, p.flower, p.accent);
+    // Pendant
+    drawFlower(360, 550, 10, p.flower, p.flowerCenter);
 
-    // Detalles de ropa
-    for (let i = 0; i < 4; i++) {
-        circle(360, 590 + i * 20, 3, p.flower);
-    }
+    // Decorative clothing flowers
+    drawFlower(295, 565, 9, p.flower, p.flowerCenter);
+    drawFlower(425, 565, 9, p.flower, p.flowerCenter);
 }
 
 
 /* ==========================================
-   14. COMPOSICIÓN FINAL
+   17. DRAW STATIC COMPOSITION
 ========================================== */
 
-function drawComposition() {
+function drawBase() {
 
-    const p = palettes[currentPalette];
+    const p = palettes[paletteIndex];
 
-    const hairStyle = randomInt(0, 2);
-    const expression = randomInt(0, 1);
-
-    ctx.clearRect(0, 0, WIDTH, HEIGHT);
+    ctx.clearRect(0, 0, W, H);
 
     drawBackground(p);
+    drawBotanicalDetails(p);
 
-    // Decoraciones traseras
-    drawDecorations(p);
-
-    // Personaje
-    drawBackHair(p, hairStyle);
+    drawBackHair(p);
     drawBody(p);
-    drawFace(p, expression);
-    drawFrontHair(p, hairStyle);
+    drawFace(p);
+    drawFrontHair(p);
     drawCharacterDetails(p);
 
-    // Elementos botánicos cercanos
-    for (let i = 0; i < 8; i++) {
-
-        const side = i % 2 === 0 ? 1 : -1;
-        const x = side === 1 ? random(480, 590) : random(100, 220);
-        const y = random(320, 670);
-
-        drawLeaf(
-            x,
-            y,
-            random(12, 24),
-            random(-2, 2),
-            p.secondary
-        );
-    }
-
-    // Título
-    ctx.fillStyle = p.primary;
+    // Canvas typography
     ctx.textAlign = "center";
-    ctx.font = 'italic 38px "Playfair Display"';
-    ctx.fillText("Green Dreams", WIDTH / 2, 770);
+    ctx.fillStyle = p.text;
 
-    ctx.font = '12px "DM Mono"';
-    ctx.fillText("BOTANICAL CHARACTER STUDY", WIDTH / 2, 795);
+    ctx.font = 'italic 40px "Playfair Display"';
+    ctx.fillText("Green Dreams", W / 2, 770);
+
+    ctx.font = '11px "DM Mono"';
+    ctx.fillText("BOTANICAL CHARACTER STUDY", W / 2, 797);
 
     ctx.font = '10px "DM Mono"';
     ctx.fillText(
-        `GENERATION Nº ${String(generation).padStart(3, "0")}`,
-        WIDTH / 2,
-        825
+        `GENERATION ${String(generation).padStart(3, "0")}`,
+        W / 2,
+        824
     );
 
     ctx.textAlign = "left";
+
+    createFlowers();
+}
+
+
+/* ==========================================
+   18. ANIMATION LOOP
+========================================== */
+
+function animate() {
+
+    const p = palettes[paletteIndex];
+
+    // Redraw the base illustration
+    drawBaseFrame(p);
+
+    // Draw moving flowers over it
+    animateFlowers(p);
+
+    animationFrame = requestAnimationFrame(animate);
+}
+
+function drawBaseFrame(p) {
+
+    // Static composition without recreating flower particles
+    ctx.clearRect(0, 0, W, H);
+
+    drawBackground(p);
+    drawBotanicalDetails(p);
+
+    drawBackHair(p);
+    drawBody(p);
+    drawFace(p);
+    drawFrontHair(p);
+    drawCharacterDetails(p);
+
+    ctx.textAlign = "center";
+    ctx.fillStyle = p.text;
+
+    ctx.font = 'italic 40px "Playfair Display"';
+    ctx.fillText("Green Dreams", W / 2, 770);
+
+    ctx.font = '11px "DM Mono"';
+    ctx.fillText("BOTANICAL CHARACTER STUDY", W / 2, 797);
+
+    ctx.font = '10px "DM Mono"';
+    ctx.fillText(
+        `GENERATION ${String(generation).padStart(3, "0")}`,
+        W / 2,
+        824
+    );
+
+    ctx.textAlign = "left";
+}
+
+
+/* ==========================================
+   19. GENERATE NEW CHARACTER
+========================================== */
+
+function generateArtwork() {
+
+    generation++;
+    characterStyle = randomInt(0, 1);
+
+    drawBase();
+    drawBaseFrame(palettes[paletteIndex]);
 
     document.getElementById("generation-number").textContent =
         `GEN ${String(generation).padStart(3, "0")}`;
@@ -651,7 +675,7 @@ function drawComposition() {
 
 
 /* ==========================================
-   15. CAMBIAR PALETA
+   20. PALETTE BUTTONS
 ========================================== */
 
 const paletteButtons = document.querySelectorAll(".palette-option");
@@ -660,7 +684,7 @@ paletteButtons.forEach(button => {
 
     button.addEventListener("click", () => {
 
-        currentPalette = Number(button.dataset.palette);
+        paletteIndex = Number(button.dataset.palette);
 
         paletteButtons.forEach(item => {
             item.classList.remove("selected");
@@ -668,53 +692,49 @@ paletteButtons.forEach(button => {
 
         button.classList.add("selected");
 
-        generation++;
-        drawComposition();
+        generateArtwork();
     });
 
 });
 
 
 /* ==========================================
-   16. GENERAR NUEVA ILUSTRACIÓN
+   21. GENERATE BUTTON
 ========================================== */
 
-const generateButton = document.getElementById("generate-btn");
+document.getElementById("generate-btn").addEventListener("click", () => {
 
-generateButton.addEventListener("click", () => {
+    const button = document.getElementById("generate-btn");
 
-    generateButton.disabled = true;
-    generateButton.style.opacity = "0.6";
+    button.disabled = true;
+    button.style.opacity = "0.6";
 
-    generation++;
-    drawComposition();
+    generateArtwork();
 
-    generateButton.disabled = false;
-    generateButton.style.opacity = "1";
+    setTimeout(() => {
+        button.disabled = false;
+        button.style.opacity = "1";
+    }, 250);
 });
 
 
 /* ==========================================
-   17. EXPORTAR PNG
+   22. DOWNLOAD PNG
 ========================================== */
 
-const downloadButton = document.getElementById("download-btn");
-
-downloadButton.addEventListener("click", () => {
-
-    const image = canvas.toDataURL("image/png");
+document.getElementById("download-btn").addEventListener("click", () => {
 
     const link = document.createElement("a");
 
-    link.href = image;
     link.download = `green-dreams-${generation}.png`;
+    link.href = canvas.toDataURL("image/png");
 
     link.click();
 });
 
 
 /* ==========================================
-   18. FORMULARIO DEMOSTRATIVO
+   23. DEMO CONTACT FORM
 ========================================== */
 
 const contactForm = document.getElementById("contact-form");
@@ -725,14 +745,15 @@ contactForm.addEventListener("submit", event => {
     event.preventDefault();
 
     formResponse.textContent =
-        "¡Formulario probado correctamente! Esta demostración no envía ni guarda tus datos.";
+        "¡Prueba completada! El formulario es solo demostrativo.";
 
     contactForm.reset();
 });
 
 
 /* ==========================================
-   19. DIBUJO AUTOMÁTICO AL CARGAR
+   24. START
 ========================================== */
 
-drawComposition();
+drawBase();
+animate();
