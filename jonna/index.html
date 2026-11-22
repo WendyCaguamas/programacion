@@ -1,27 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#d2ed65">
 
-    <meta name="description"
-        content="Wendy Caguamas — artista digital, ilustrador y desarrollador de videojuegos.">
+    <title>Wendy Caguamas — Portfolio</title>
 
-    <title>Wendy Caguamas ★ Creative Archive</title>
-
-    <!-- TIPOGRAFÍAS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- ICONOS -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
@@ -29,874 +18,484 @@
 
 <body>
 
-    <div class="scroll-progress" id="scroll-progress"></div>
-
-    <!-- TOPBAR -->
-    <div class="topbar">
-        <span>✳ ARTISTA DIGITAL INDEPENDIENTE</span>
-        <span>MADE WITH LOVE ♡ / 2026</span>
-    </div>
-
-
-    <!-- NAVBAR -->
+    <!-- NAVEGACIÓN -->
     <header class="navbar">
+        <a href="#inicio" class="logo">wendy<span>.</span></a>
 
-        <a href="#home" class="logo">WC<span>✳</span></a>
-
-        <nav class="nav-links" id="nav-links">
-            <a href="#home">INICIO</a>
-            <a href="#art">PORTFOLIO</a>
-            <a href="#laboratory">GENERATIVE LAB</a>
-            <a href="#multimedia">MULTIMEDIA</a>
-            <a href="#contact">CONTACTO</a>
-        </nav>
-
-        <button class="menu-toggle" id="menu-toggle"
-            aria-label="Abrir menú" aria-expanded="false">
-            <i class="fa-solid fa-bars"></i>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
         </button>
 
+        <nav class="nav-links" id="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#laboratorio">Laboratorio</a>
+            <a href="#multimedia">Multimedia</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+        <span class="nav-status">
+            <span class="status-dot"></span>
+            PORTFOLIO 2026
+        </span>
     </header>
 
 
     <main>
 
-        <!-- =====================================
-             01. PRESENTACIÓN
-        ====================================== -->
+        <!-- INICIO / PRESENTACIÓN -->
+        <section class="hero" id="inicio">
 
-        <section class="hero" id="home">
+            <div class="hero-main">
+                <div class="hero-kicker">
+                    <span>DISEÑO · ARTE · EXPERIMENTACIÓN</span>
+                    <span>ECUADOR — 2026</span>
+                </div>
 
-            <div class="hero-label reveal">
-                <span>✿</span> BIENVENIDO A MI PEQUEÑO MUNDO
-            </div>
+                <div class="hero-heading">
+                    <p class="hero-overline">UN ESPACIO CREATIVO DE</p>
 
-            <div class="hero-content">
-
-                <div class="hero-text">
-
-                    <p class="eyebrow reveal">
-                        ARTISTA DIGITAL / GAME DEVELOPER
-                    </p>
-
-                    <h1 class="reveal">
-                        Wendy<br>
-                        <em>Caguamas.</em>
+                    <h1>
+                        Wendy
+                        <span>Caguamas.</span>
                     </h1>
 
-                    <p class="hero-description reveal">
-                        Un poco de arte, un poco de caos.
+                    <div class="hero-bottom">
+                        <p class="hero-description">
+                            Explorando ideas a través del diseño multimedia,
+                            la ilustración, los videojuegos y la experimentación digital.
+                        </p>
 
-                        Soy un chico que utiliza Wendy como nombre
-                        artístico. Me apasiona crear personajes,
-                        experimentar con estilos visuales y construir
-                        pequeños universos mediante el arte digital
-                        y los videojuegos.
+                        <a href="#proyectos" class="round-link" aria-label="Ver proyectos">
+                            <span>↓</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-footer">
+                    <span>ARTISTA DIGITAL / CREADOR MULTIMEDIA</span>
+                    <span>01 — 05</span>
+                </div>
+            </div>
+
+            <aside class="hero-side">
+
+                <div class="hero-artwork">
+                    <div class="artwork-top">
+                        <span>FIG. 001</span>
+                        <span>CREATIVE IDENTITY</span>
+                    </div>
+
+                    <div class="hero-illustration">
+                        <div class="orbit orbit-one"></div>
+                        <div class="orbit orbit-two"></div>
+
+                        <div class="hero-flower flower-one">✳</div>
+                        <div class="hero-flower flower-two">✿</div>
+                        <div class="hero-flower flower-three">✳</div>
+
+                        <div class="hero-letter">W</div>
+
+                        <div class="hero-sticker">
+                            <span>STAY</span>
+                            <strong>CURIOUS</strong>
+                        </div>
+                    </div>
+
+                    <div class="artwork-bottom">
+                        <span>CREATIVITY IN PROGRESS</span>
+                        <span>✳</span>
+                    </div>
+                </div>
+
+                <div class="identity-note">
+                    <span class="note-number">01 / ABOUT</span>
+                    <p>
+                        Wendy es mi nombre artístico. Soy chico y utilizo
+                        este espacio para compartir mis proyectos,
+                        ideas y experimentos creativos.
                     </p>
-
-                    <a href="#art" class="main-button reveal">
-                        EXPLORAR MI UNIVERSO <span>↗</span>
-                    </a>
-
-                    <div class="hero-note reveal">
-                        ♡ hecho de píxeles, sueños e ideas extrañas
-                    </div>
-
                 </div>
 
-
-                <div class="hero-image reveal">
-
-                    <div class="image-sticker">
-                        CREATIVE<br>
-                        ARCHIVE<br>
-                        Nº 001
-                    </div>
-
-                    <img
-                        src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=900"
-                        alt="Paisaje artístico de fantasía"
-                    >
-
-                    <div class="image-caption">
-                        FIG. 01 — UN MUNDO PROPIO
-                    </div>
-
-                    <div class="image-decoration">✳</div>
-
-                </div>
-
-            </div>
-
-
-            <div class="hero-bottom">
-                <span>DESLIZA PARA EXPLORAR ↓</span>
-                <span>EL ARTE ES MI LENGUAJE FAVORITO.</span>
-            </div>
-
+            </aside>
         </section>
 
 
+        <!-- PROYECTOS -->
+        <section class="projects section" id="proyectos">
 
-        <!-- =====================================
-             02. PORTFOLIO
-        ====================================== -->
-
-        <section class="art section" id="art">
-
-            <div class="section-heading reveal">
-                <span>01 / DIARIO VISUAL</span>
-                <span>✿ MIS TRABAJOS</span>
-            </div>
-
-
-            <div class="art-intro reveal">
-
+            <div class="section-heading">
                 <div>
-                    <span class="mini-label">UNA COLECCIÓN DE IDEAS</span>
-
-                    <h2>
-                        Pequeñas partes<br>
-                        de <em>mi imaginación.</em>
-                    </h2>
+                    <span class="eyebrow">01 — TRABAJO SELECCIONADO</span>
+                    <h2>Proyectos<span>.</span></h2>
                 </div>
 
-                <p>
-                    Ilustración, modelado 3D y mundos interactivos.
-                    Una pequeña muestra de mis intereses creativos.
+                <p class="section-intro">
+                    Ideas, mundos y personajes desarrollados
+                    mediante distintas herramientas digitales.
                 </p>
-
             </div>
 
-
-            <div class="gallery">
-
-                <article class="art-card tall reveal">
-
-                    <figure>
-
-                        <div class="art-image">
-                            <img
-                                src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=900"
-                                alt="Escenario de videojuego"
-                                loading="lazy"
-                            >
-                            <span class="image-number">01</span>
-                        </div>
-
-                        <figcaption class="art-info">
-
-                            <span>VIDEOJUEGOS / 3D</span>
-
-                            <h3>F.E.M.B.O.Y.</h3>
-
-                            <p>
-                                Videojuego independiente con estética
-                                low poly, ambientación gótica, diseño
-                                de personajes y exploración de escenarios.
-                            </p>
-
-                            <p class="project-tool">
-                                <strong>Herramientas:</strong>
-                                Blender y desarrollo de videojuegos.
-                            </p>
-
-                        </figcaption>
-
-                    </figure>
-
-                </article>
-
-
-                <article class="art-card reveal">
-
-                    <figure>
-
-                        <div class="art-image">
-                            <img
-                                src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900"
-                                alt="Arte digital abstracto"
-                                loading="lazy"
-                            >
-                            <span class="image-number">02</span>
-                        </div>
-
-                        <figcaption class="art-info">
-
-                            <span>MODELADO / ARTE 3D</span>
-
-                            <h3>Digital Worlds</h3>
-
-                            <p>
-                                Experimentación con formas, materiales,
-                                iluminación y composición para construir
-                                objetos y escenarios digitales.
-                            </p>
-
-                            <p class="project-tool">
-                                <strong>Herramienta:</strong> Blender.
-                            </p>
-
-                        </figcaption>
-
-                    </figure>
-
-                </article>
-
-
-                <article class="art-card reveal">
-
-                    <figure>
-
-                        <div class="art-image">
-                            <img
-                                src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=900"
-                                alt="Referencia de ilustración"
-                                loading="lazy"
-                            >
-                            <span class="image-number">03</span>
-                        </div>
-
-                        <figcaption class="art-info">
-
-                            <span>ILUSTRACIÓN / DISEÑO</span>
-
-                            <h3>Character Studies</h3>
-
-                            <p>
-                                Exploración de siluetas, personajes,
-                                paletas de colores y diferentes
-                                estilos de ilustración.
-                            </p>
-
-                            <p class="project-tool">
-                                <strong>Técnica:</strong>
-                                Ilustración digital.
-                            </p>
-
-                        </figcaption>
-
-                    </figure>
-
-                </article>
-
-
-                <article class="art-card wide reveal">
-
-                    <figure>
-
-                        <div class="art-image">
-                            <img
-                                src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=1200"
-                                alt="Composición digital experimental"
-                                loading="lazy"
-                            >
-                            <span class="image-number">04</span>
-                        </div>
-
-                        <figcaption class="art-info">
-
-                            <span>EXPERIMENTACIÓN VISUAL</span>
-
-                            <h3>Something Strange & Beautiful</h3>
-
-                            <p>
-                                Colores, texturas y composiciones
-                                experimentales para desarrollar
-                                una identidad gráfica propia.
-                            </p>
-
-                        </figcaption>
-
-                    </figure>
-
-                </article>
-
-            </div>
-
-            <p class="gallery-note">
-                ✳ IMÁGENES DE REFERENCIA — REEMPLAZAR POR TRABAJOS PROPIOS.
-            </p>
-
-        </section>
-
-
-
-        <!-- =====================================
-             03. LABORATORIO GENERATIVO
-        ====================================== -->
-
-        <section class="laboratory section" id="laboratory">
-
-            <div class="section-heading reveal">
-                <span>02 / CREATIVE CODING</span>
-                <span>✳ MI ESTUDIO GENERATIVO</span>
-            </div>
-
-
-            <div class="lab-intro reveal">
-
-                <div>
-
-                    <span class="mini-label">
-                        DISEÑO + CÓDIGO + EXPERIMENTACIÓN
-                    </span>
-
-                    <h2>
-                        GREEN<br>
-                        <em>DREAMS.</em>
-                    </h2>
-
-                </div>
-
-                <div class="lab-description">
-
-                    <span class="lab-number">GENERATIVE ART Nº 001</span>
-
-                    <p>
-                        ¿Y si cada ilustración fuera diferente?
-
-                        Green Dreams es un pequeño laboratorio
-                        de arte generativo donde el código crea
-                        retratos de una chica de estética anime,
-                        rodeada de naturaleza, flores y elementos
-                        fantásticos.
-                    </p>
-
-                    <p>
-                        Cada composición combina geometría,
-                        color y variaciones aleatorias para
-                        producir una nueva pieza visual.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- GENERADOR -->
-
-            <div class="generator reveal">
-
-
-                <!-- ENCABEZADO -->
-
-                <div class="generator-header">
-
-                    <div class="generator-brand">
-                        <span class="generator-symbol">✿</span>
-
+            <div class="projects-grid">
+
+                <article class="project-card project-featured">
+                    <div class="project-image project-femboy">
+                        <img
+                            src="assets/images/femboy.jpg"
+                            alt="Arte conceptual del proyecto F.E.M.B.O.Y."
+                        >
+                        <span class="image-index">01 / GAME DESIGN</span>
+                        <span class="image-arrow">↗</span>
+                    </div>
+
+                    <div class="project-info">
                         <div>
-                            <strong>GREEN DREAMS</strong>
-                            <small>CREATIVE GENERATOR / V.01</small>
+                            <span class="project-category">VIDEOJUEGOS · 3D · HORROR</span>
+                            <h3>F.E.M.B.O.Y.</h3>
                         </div>
+
+                        <p>
+                            Un universo de estética low-poly que mezcla
+                            personajes estilizados, misterio y una atmósfera
+                            de terror independiente.
+                        </p>
+                    </div>
+                </article>
+
+
+                <article class="project-card">
+                    <div class="project-image project-worlds">
+                        <img
+                            src="assets/images/digital-worlds.jpg"
+                            alt="Arte digital de Digital Worlds"
+                        >
+                        <span class="image-index">02 / DIGITAL ART</span>
+                        <span class="image-arrow">↗</span>
                     </div>
 
-                    <span class="live-status">
-                        <span></span> GENERATIVE SYSTEM ONLINE
-                    </span>
-
-                </div>
-
-
-                <!-- CANVAS Y PANEL -->
-
-                <div class="generator-layout">
-
-
-                    <!-- ÁREA DE DIBUJO -->
-
-                    <div class="canvas-container">
-
-                        <div class="canvas-top-label">
-                            <span>FIG. 001 — DIGITAL PORTRAIT</span>
-                            <span>CANVAS / 900 × 1100</span>
+                    <div class="project-info">
+                        <div>
+                            <span class="project-category">EXPERIMENTACIÓN VISUAL</span>
+                            <h3>Digital Worlds</h3>
                         </div>
 
-                        <div class="canvas-frame">
+                        <p>
+                            Exploraciones visuales, composiciones digitales
+                            y pequeños universos creados a partir de ideas.
+                        </p>
+                    </div>
+                </article>
 
-                            <canvas
-                                id="art-canvas"
-                                width="900"
-                                height="1100"
-                                aria-label="Ilustración generativa de una chica anime con temática botánica"
-                            ></canvas>
 
-                        </div>
-
-                        <div class="canvas-bottom-label">
-                            <span>ORIGINAL GENERATIVE ART</span>
-                            <span id="generation-number">GENERATION 001</span>
-                        </div>
-
+                <article class="project-card">
+                    <div class="project-image project-characters">
+                        <img
+                            src="assets/images/character-studies.jpg"
+                            alt="Estudios de personajes digitales"
+                        >
+                        <span class="image-index">03 / CHARACTER ART</span>
+                        <span class="image-arrow">↗</span>
                     </div>
 
-
-                    <!-- PANEL DE CONTROL -->
-
-                    <aside class="generator-panel">
-
-                        <div class="panel-heading">
-                            <span>✳ PANEL CREATIVO</span>
-                            <span>01—03</span>
+                    <div class="project-info">
+                        <div>
+                            <span class="project-category">ILUSTRACIÓN · MODELADO</span>
+                            <h3>Character Studies</h3>
                         </div>
 
-
-                        <!-- PALETAS -->
-
-                        <div class="control-group">
-
-                            <label>SELECCIONAR PALETA</label>
-
-                            <p>
-                                Cambia la atmósfera de la ilustración.
-                            </p>
-
-
-                            <button
-                                class="palette-option selected"
-                                data-palette="0"
-                                type="button"
-                            >
-
-                                <span class="palette-name">
-                                    01 / GREEN GARDEN
-                                </span>
-
-                                <span class="palette-colors green-colors">
-                                    <i></i><i></i><i></i><i></i><i></i>
-                                </span>
-
-                            </button>
-
-
-                            <button
-                                class="palette-option"
-                                data-palette="1"
-                                type="button"
-                            >
-
-                                <span class="palette-name">
-                                    02 / PINK DREAMS
-                                </span>
-
-                                <span class="palette-colors pink-colors">
-                                    <i></i><i></i><i></i><i></i><i></i>
-                                </span>
-
-                            </button>
-
-                        </div>
-
-
-                        <div class="panel-divider"></div>
-
-
-                        <!-- GENERAR -->
-
-                        <div class="control-group">
-
-                            <label>NUEVA COMPOSICIÓN</label>
-
-                            <p>
-                                Cada generación crea un retrato
-                                con una distribución diferente.
-                            </p>
-
-                            <button
-                                id="generate-btn"
-                                class="generate-button"
-                                type="button"
-                            >
-                                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                                GENERAR ARTE
-                                <span>↗</span>
-                            </button>
-
-                        </div>
-
-
-                        <div class="panel-divider"></div>
-
-
-                        <!-- DESCARGAR -->
-
-                        <div class="control-group">
-
-                            <label>EXPORTAR CREACIÓN</label>
-
-                            <p>
-                                Guarda tu composición como imagen.
-                            </p>
-
-                            <button
-                                id="download-btn"
-                                class="download-button"
-                                type="button"
-                            >
-                                <i class="fa-solid fa-download"></i>
-                                GUARDAR PNG
-                            </button>
-
-                        </div>
-
-
-                        <!-- INFORMACIÓN -->
-
-                        <div class="generator-note">
-
-                            <span>✿</span>
-
-                            <p>
-                                No existen dos composiciones
-                                exactamente iguales. Experimenta,
-                                cambia los colores y crea tu propia
-                                colección de retratos.
-                            </p>
-
-                        </div>
-
-
-                    </aside>
-
-                </div>
-
-
-                <!-- PIE DEL GENERADOR -->
-
-                <div class="generator-footer">
-                    <span>POWERED BY HTML CANVAS + JAVASCRIPT</span>
-                    <span>MADE WITH ♡ BY WENDY</span>
-                </div>
+                        <p>
+                            Diseño de personajes, pruebas de estilo,
+                            siluetas y exploración de formas.
+                        </p>
+                    </div>
+                </article>
 
             </div>
-
-
-            <div class="lab-bottom reveal">
-
-                <span>✳ ALGORITMOS COMO HERRAMIENTAS CREATIVAS</span>
-
-                <span>DESIGN IS NEVER THE SAME TWICE.</span>
-
-            </div>
-
         </section>
 
 
+        <!-- LABORATORIO GENERATIVO -->
+        <section class="laboratory section" id="laboratorio">
 
-        <!-- =====================================
-             04. MULTIMEDIA
-        ====================================== -->
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">02 — EXPERIMENTO INTERACTIVO</span>
+                    <h2>Green Dreams<span>.</span></h2>
+                </div>
 
+                <p class="section-intro">
+                    Una pequeña exploración de arte generativo
+                    construida con HTML Canvas y JavaScript.
+                </p>
+            </div>
+
+            <div class="lab-layout">
+
+                <div class="canvas-frame">
+                    <div class="canvas-top">
+                        <span>GENERATIVE CHARACTER / 001</span>
+                        <span id="generation-number">GEN 001</span>
+                    </div>
+
+                    <canvas id="art-canvas" width="720" height="850">
+                        Tu navegador no soporta Canvas.
+                    </canvas>
+
+                    <div class="canvas-bottom">
+                        <span>RANDOMIZED BOTANICAL STUDY</span>
+                        <span>W.C. © 2026</span>
+                    </div>
+                </div>
+
+
+                <div class="lab-controls">
+
+                    <span class="control-label">THE CONCEPT</span>
+
+                    <h3>Una chica, un jardín y un mundo imaginario.</h3>
+
+                    <p>
+                        Green Dreams genera una ilustración original
+                        inspirada en la estética anime, la naturaleza
+                        y las composiciones botánicas.
+                    </p>
+
+                    <div class="control-divider"></div>
+
+                    <span class="control-label">01 — COLOR PALETTE</span>
+
+                    <div class="palette-list">
+                        <button class="palette-option selected" data-palette="0">
+                            <span class="palette-preview green-preview"></span>
+                            Green Garden
+                        </button>
+
+                        <button class="palette-option" data-palette="1">
+                            <span class="palette-preview pink-preview"></span>
+                            Pink Dreams
+                        </button>
+                    </div>
+
+                    <div class="control-divider"></div>
+
+                    <span class="control-label">02 — GENERATION</span>
+
+                    <button class="generate-button" id="generate-btn">
+                        GENERAR NUEVA ILUSTRACIÓN
+                        <span>↗</span>
+                    </button>
+
+                    <button class="download-button" id="download-btn">
+                        DESCARGAR COMO PNG
+                        <span>↓</span>
+                    </button>
+
+                    <p class="lab-footnote">
+                        Cada generación modifica la composición,
+                        los elementos decorativos y algunos detalles
+                        del personaje.
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- MULTIMEDIA -->
         <section class="multimedia section" id="multimedia">
 
-            <div class="section-heading reveal">
-                <span>03 / EXPERIMENTACIÓN</span>
-                <span>♡ EXPERIENCIA MULTIMEDIA</span>
-            </div>
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">03 — SONIDO E IMAGEN</span>
+                    <h2>Multimedia<span>.</span></h2>
+                </div>
 
-
-            <div class="media-heading reveal">
-
-                <h2>
-                    Escuchar, mirar<br>
-                    y <em>experimentar.</em>
-                </h2>
-
-                <p>
-                    El sonido y el movimiento también forman parte
-                    de mi universo creativo. Exploro cómo pueden
-                    complementar las experiencias visuales.
+                <p class="section-intro">
+                    El sonido y el movimiento también forman
+                    parte de mi proceso creativo.
                 </p>
-
             </div>
-
 
             <div class="media-grid">
 
-
-                <!-- AUDIO -->
-
-                <article class="media-card reveal">
-
-                    <div class="media-image">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=900"
-                            alt="Estudio de producción musical"
-                            loading="lazy"
-                        >
-
-                        <span>AUDIO 001</span>
-
+                <article class="media-card">
+                    <div class="media-heading">
+                        <span class="media-icon">♫</span>
+                        <div>
+                            <span class="control-label">AUDIO EXPERIMENTAL</span>
+                            <h3>Sound selection</h3>
+                        </div>
                     </div>
 
-                    <div class="media-content">
+                    <p>
+                        Una muestra de exploración sonora y ambiente.
+                    </p>
 
-                        <span class="media-category">
-                            EXPERIENCIA SONORA
-                        </span>
-
-                        <h3>Creative Atmosphere</h3>
-
-                        <p>
-                            Experimentación sonora para construir
-                            ambientes y acompañar experiencias digitales.
-                        </p>
-
-                        <audio controls preload="metadata">
-                            <source src="assets/audio/audio.mp3" type="audio/mpeg">
-                            Tu navegador no soporta audio HTML5.
-                        </audio>
-
-                    </div>
-
+                    <audio controls preload="metadata">
+                        <source src="assets/audio/audio.mp3" type="audio/mpeg">
+                        Tu navegador no soporta audio HTML5.
+                    </audio>
                 </article>
 
 
-                <!-- VIDEO -->
-
-                <article class="media-card reveal">
-
-                    <div class="media-image">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=900"
-                            alt="Producción audiovisual"
-                            loading="lazy"
-                        >
-
-                        <span>VIDEO 001</span>
-
+                <article class="media-card">
+                    <div class="media-heading">
+                        <span class="media-icon">▶</span>
+                        <div>
+                            <span class="control-label">VIDEO EXPERIMENTAL</span>
+                            <h3>Motion studies</h3>
+                        </div>
                     </div>
 
-                    <div class="media-content">
+                    <p>
+                        Una muestra de animación, movimiento y narrativa visual.
+                    </p>
 
-                        <span class="media-category">
-                            EXPERIENCIA VISUAL
-                        </span>
-
-                        <h3>Visual Experiments</h3>
-
-                        <p>
-                            Una muestra de experimentación audiovisual,
-                            animación y construcción de imágenes
-                            en movimiento.
-                        </p>
-
-                        <video controls preload="metadata" playsinline>
-                            <source src="assets/video/video.mp4" type="video/mp4">
-                            Tu navegador no soporta video HTML5.
-                        </video>
-
-                    </div>
-
+                    <video controls preload="metadata">
+                        <source src="assets/video/video.mp4" type="video/mp4">
+                        Tu navegador no soporta video HTML5.
+                    </video>
                 </article>
 
             </div>
-
         </section>
 
 
+        <!-- CONTACTO -->
+        <section class="contact section" id="contacto">
 
-        <!-- =====================================
-             05. CONTACTO
-        ====================================== -->
+            <div class="contact-layout">
 
-        <section class="contact section" id="contact">
+                <div class="contact-heading">
+                    <span class="eyebrow">04 — HABLEMOS</span>
 
-            <div class="contact-decoration">✳</div>
+                    <h2>
+                        ¿Creamos<br>
+                        algo <em>juntos?</em>
+                    </h2>
 
-            <div class="contact-header reveal">
+                    <p>
+                        Este formulario es una demostración de interfaz.
+                        No envía ni almacena información.
+                    </p>
 
-                <p>04 / PONGÁMONOS EN CONTACTO</p>
-
-                <h2>
-                    ¿Creamos algo<br>
-                    <em>interesante?</em>
-                </h2>
-
-                <p class="contact-text">
-                    Si tienes una idea creativa o una propuesta
-                    multimedia, puedes completar este formulario.
-                </p>
-
-            </div>
-
-
-            <form id="contact-form" class="contact-form reveal">
-
-                <div class="form-top">
-                    <span>✿ NUEVO MENSAJE</span>
-                    <span>FORMULARIO Nº 001</span>
+                    <div class="contact-decoration">✳</div>
                 </div>
 
 
-                <div class="form-group">
+                <form id="contact-form" class="contact-form">
 
-                    <label for="nombre">
-                        NOMBRE DEL VISITANTE *
-                    </label>
+                    <div class="form-row">
 
-                    <input
-                        type="text"
-                        id="nombre"
-                        name="nombre"
-                        placeholder="Escribe tu nombre"
-                        required
-                    >
+                        <div class="form-field">
+                            <label for="name">Tu nombre</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Nombre ficticio"
+                                required
+                            >
+                        </div>
 
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="correo">
-                        CORREO ELECTRÓNICO *
-                    </label>
-
-                    <input
-                        type="email"
-                        id="correo"
-                        name="correo"
-                        placeholder="ejemplo@correo.com"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="proyecto">
-                        TIPO DE PROYECTO *
-                    </label>
-
-                    <select id="proyecto" name="proyecto" required>
-
-                        <option value="" disabled selected>
-                            Selecciona una opción
-                        </option>
-
-                        <option value="ilustracion">Ilustración digital</option>
-                        <option value="modelado">Modelado 3D</option>
-                        <option value="videojuegos">Videojuegos</option>
-                        <option value="animacion">Animación</option>
-                        <option value="diseno">Diseño multimedia</option>
-                        <option value="otro">Otro</option>
-
-                    </select>
-
-                </div>
-
-
-                <fieldset class="form-group">
-
-                    <legend>MODALIDAD DE COLABORACIÓN *</legend>
-
-                    <div class="radio-group">
-
-                        <label class="radio-option">
-                            <input type="radio" name="modalidad"
-                                value="presencial" required>
-                            <span>PRESENCIAL</span>
-                        </label>
-
-                        <label class="radio-option">
-                            <input type="radio" name="modalidad"
-                                value="virtual">
-                            <span>VIRTUAL</span>
-                        </label>
-
-                        <label class="radio-option">
-                            <input type="radio" name="modalidad"
-                                value="indiferente">
-                            <span>INDIFERENTE</span>
-                        </label>
+                        <div class="form-field">
+                            <label for="email">Tu correo</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="correo@ejemplo.com"
+                                required
+                            >
+                        </div>
 
                     </div>
 
-                </fieldset>
+
+                    <div class="form-field">
+                        <label for="project-type">Tipo de proyecto</label>
+
+                        <select id="project-type" name="project-type" required>
+                            <option value="" disabled selected>
+                                Selecciona una opción
+                            </option>
+                            <option value="diseno">Diseño gráfico</option>
+                            <option value="videojuego">Videojuegos</option>
+                            <option value="ilustracion">Ilustración</option>
+                            <option value="multimedia">Producción multimedia</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
 
 
-                <div class="form-group">
+                    <div class="form-field">
+                        <label>Modalidad de colaboración</label>
 
-                    <label for="mensaje">TU MENSAJE *</label>
+                        <div class="radio-options">
+                            <label>
+                                <input type="radio" name="modality" value="remota" required>
+                                Remota
+                            </label>
 
-                    <textarea
-                        id="mensaje"
-                        name="mensaje"
-                        rows="5"
-                        placeholder="Cuéntame sobre tu idea..."
-                        required
-                    ></textarea>
+                            <label>
+                                <input type="radio" name="modality" value="presencial">
+                                Presencial
+                            </label>
 
-                </div>
-
-
-                <div class="form-notice">
-                    <i class="fa-solid fa-circle-info"></i>
-
-                    FORMULARIO DEMOSTRATIVO: los datos no se guardan
-                    ni se envían a ningún servidor. Utiliza únicamente
-                    información ficticia para las pruebas.
-                </div>
+                            <label>
+                                <input type="radio" name="modality" value="indiferente">
+                                Indiferente
+                            </label>
+                        </div>
+                    </div>
 
 
-                <button type="submit" class="main-button form-button">
-                    ENVIAR MENSAJE <span>↗</span>
-                </button>
+                    <div class="form-field">
+                        <label for="message">Cuéntame tu idea</label>
 
-                <p id="form-response" aria-live="polite"></p>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="3"
+                            placeholder="Escribe un mensaje ficticio..."
+                            required
+                        ></textarea>
+                    </div>
 
-            </form>
 
+                    <button type="submit" class="send-button">
+                        PROBAR FORMULARIO
+                        <span>↗</span>
+                    </button>
 
-            <div class="social-links reveal">
+                    <p class="form-notice">
+                        * No introduzcas información personal real.
+                        Este formulario solo demuestra su funcionamiento visual.
+                    </p>
 
-                <a href="https://instagram.com/"
-                    target="_blank" rel="noopener noreferrer">
-                    INSTAGRAM ↗
-                </a>
+                    <p id="form-response" aria-live="polite"></p>
 
-                <a href="https://itch.io/"
-                    target="_blank" rel="noopener noreferrer">
-                    ITCH.IO ↗
-                </a>
-
-                <a href="https://artstation.com/"
-                    target="_blank" rel="noopener noreferrer">
-                    ARTSTATION ↗
-                </a>
-
-                <a href="mailto:hello@example.com">
-                    EMAIL ↗
-                </a>
+                </form>
 
             </div>
-
         </section>
 
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
 
-    <footer>
-
-        <a href="#home" class="footer-logo">
-            WENDY CAGUAMAS ✳
+        <a href="../index.html" class="back-link">
+            <span>←</span>
+            VOLVER A LA LANDING DEL EQUIPO
         </a>
 
-        <span>
-            UN PEQUEÑO RINCÓN DE INTERNET HECHO CON ♡
-            <span id="current-year">2026</span>
-        </span>
+        <span class="footer-brand">WENDY CAGUAMAS © 2026</span>
 
-        <a href="../index.html" class="back-team">
-            <i class="fa-solid fa-arrow-left"></i>
-            VOLVER AL EQUIPO
-        </a>
+        <a href="#inicio" class="back-top">VOLVER ARRIBA ↑</a>
 
     </footer>
 
