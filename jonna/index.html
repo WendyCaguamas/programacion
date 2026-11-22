@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#d2ed65">
+    <meta name="theme-color" content="#c9f45b">
 
     <title>Wendy Caguamas — Portfolio</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
@@ -18,14 +18,8 @@
 
 <body>
 
-    <!-- NAVEGACIÓN -->
     <header class="navbar">
-        <a href="#inicio" class="logo">wendy<span>.</span></a>
-
-        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
-            <span></span>
-            <span></span>
-        </button>
+        <a href="#inicio" class="logo">wendy<span>✳</span></a>
 
         <nav class="nav-links" id="nav-links">
             <a href="#inicio">Inicio</a>
@@ -35,179 +29,110 @@
             <a href="#contacto">Contacto</a>
         </nav>
 
-        <span class="nav-status">
-            <span class="status-dot"></span>
-            PORTFOLIO 2026
-        </span>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+            <span></span><span></span>
+        </button>
     </header>
 
 
     <main>
 
-        <!-- INICIO / PRESENTACIÓN -->
+        <!-- HERO -->
         <section class="hero" id="inicio">
 
-            <div class="hero-main">
-                <div class="hero-kicker">
-                    <span>DISEÑO · ARTE · EXPERIMENTACIÓN</span>
-                    <span>ECUADOR — 2026</span>
-                </div>
+            <div class="hero-copy">
+                <span class="eyebrow">ARTISTA DIGITAL · ECUADOR</span>
 
-                <div class="hero-heading">
-                    <p class="hero-overline">UN ESPACIO CREATIVO DE</p>
+                <h1>
+                    Wendy
+                    <em>Caguamas.</em>
+                </h1>
 
-                    <h1>
-                        Wendy
-                        <span>Caguamas.</span>
-                    </h1>
+                <p>
+                    Diseño, personajes y mundos digitales.
+                </p>
 
-                    <div class="hero-bottom">
-                        <p class="hero-description">
-                            Explorando ideas a través del diseño multimedia,
-                            la ilustración, los videojuegos y la experimentación digital.
-                        </p>
+                <a href="#proyectos" class="hero-button">
+                    EXPLORAR TRABAJOS <span>↘</span>
+                </a>
 
-                        <a href="#proyectos" class="round-link" aria-label="Ver proyectos">
-                            <span>↓</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="hero-footer">
-                    <span>ARTISTA DIGITAL / CREADOR MULTIMEDIA</span>
-                    <span>01 — 05</span>
-                </div>
+                <span class="hero-small-note">
+                    Wendy es mi nombre artístico.
+                </span>
             </div>
 
-            <aside class="hero-side">
+            <div class="hero-visual">
+                <div class="hero-orbit orbit-a"></div>
+                <div class="hero-orbit orbit-b"></div>
 
-                <div class="hero-artwork">
-                    <div class="artwork-top">
-                        <span>FIG. 001</span>
-                        <span>CREATIVE IDENTITY</span>
-                    </div>
+                <div class="hero-flower flower-a">✿</div>
+                <div class="hero-flower flower-b">✳</div>
+                <div class="hero-flower flower-c">✿</div>
+                <div class="hero-flower flower-d">✳</div>
 
-                    <div class="hero-illustration">
-                        <div class="orbit orbit-one"></div>
-                        <div class="orbit orbit-two"></div>
-
-                        <div class="hero-flower flower-one">✳</div>
-                        <div class="hero-flower flower-two">✿</div>
-                        <div class="hero-flower flower-three">✳</div>
-
-                        <div class="hero-letter">W</div>
-
-                        <div class="hero-sticker">
-                            <span>STAY</span>
-                            <strong>CURIOUS</strong>
-                        </div>
-                    </div>
-
-                    <div class="artwork-bottom">
-                        <span>CREATIVITY IN PROGRESS</span>
-                        <span>✳</span>
-                    </div>
+                <div class="hero-center">
+                    <span class="hero-center-top">CREATIVE WORLD</span>
+                    <span class="hero-initial">W</span>
+                    <span class="hero-center-bottom">MADE OF IDEAS</span>
                 </div>
 
-                <div class="identity-note">
-                    <span class="note-number">01 / ABOUT</span>
-                    <p>
-                        Wendy es mi nombre artístico. Soy chico y utilizo
-                        este espacio para compartir mis proyectos,
-                        ideas y experimentos creativos.
-                    </p>
-                </div>
+                <span class="hero-side-label">EST. 2026 — WC</span>
+            </div>
 
-            </aside>
+            <div class="hero-index">01 / 04</div>
         </section>
 
 
-        <!-- PROYECTOS -->
+        <!-- PROJECTS -->
         <section class="projects section" id="proyectos">
 
             <div class="section-heading">
                 <div>
-                    <span class="eyebrow">01 — TRABAJO SELECCIONADO</span>
-                    <h2>Proyectos<span>.</span></h2>
+                    <span class="eyebrow">01 — SELECTED WORKS</span>
+                    <h2>Mis proyectos<span>✳</span></h2>
                 </div>
 
-                <p class="section-intro">
-                    Ideas, mundos y personajes desarrollados
-                    mediante distintas herramientas digitales.
-                </p>
+                <span class="heading-side">2026 / PORTFOLIO</span>
             </div>
 
             <div class="projects-grid">
 
-                <article class="project-card project-featured">
-                    <div class="project-image project-femboy">
+                <article class="project-card">
+                    <a href="#" class="project-image gyaru-image">
                         <img
-                            src="assets/images/femboy.jpg"
-                            alt="Arte conceptual del proyecto F.E.M.B.O.Y."
+                            src="assets/images/gyaru-hookei.jpg"
+                            alt="Proyecto Gyaru Hookei"
                         >
-                        <span class="image-index">01 / GAME DESIGN</span>
-                        <span class="image-arrow">↗</span>
-                    </div>
+                        <span class="project-number">01</span>
+                        <span class="project-arrow">↗</span>
+                    </a>
 
-                    <div class="project-info">
+                    <div class="project-meta">
                         <div>
-                            <span class="project-category">VIDEOJUEGOS · 3D · HORROR</span>
-                            <h3>F.E.M.B.O.Y.</h3>
+                            <span class="project-type">VIDEOJUEGO · DISEÑO</span>
+                            <h3>Gyaru Hookei</h3>
                         </div>
-
-                        <p>
-                            Un universo de estética low-poly que mezcla
-                            personajes estilizados, misterio y una atmósfera
-                            de terror independiente.
-                        </p>
+                        <span class="project-symbol">✿</span>
                     </div>
                 </article>
 
 
                 <article class="project-card">
-                    <div class="project-image project-worlds">
+                    <a href="#" class="project-image sugar-image">
                         <img
-                            src="assets/images/digital-worlds.jpg"
-                            alt="Arte digital de Digital Worlds"
+                            src="assets/images/im-not-sugar-sugar.jpg"
+                            alt="Proyecto I'm not Sugar Sugar"
                         >
-                        <span class="image-index">02 / DIGITAL ART</span>
-                        <span class="image-arrow">↗</span>
-                    </div>
+                        <span class="project-number">02</span>
+                        <span class="project-arrow">↗</span>
+                    </a>
 
-                    <div class="project-info">
+                    <div class="project-meta">
                         <div>
-                            <span class="project-category">EXPERIMENTACIÓN VISUAL</span>
-                            <h3>Digital Worlds</h3>
+                            <span class="project-type">ARTE DIGITAL · EXPERIMENTO</span>
+                            <h3>I'm not Sugar Sugar</h3>
                         </div>
-
-                        <p>
-                            Exploraciones visuales, composiciones digitales
-                            y pequeños universos creados a partir de ideas.
-                        </p>
-                    </div>
-                </article>
-
-
-                <article class="project-card">
-                    <div class="project-image project-characters">
-                        <img
-                            src="assets/images/character-studies.jpg"
-                            alt="Estudios de personajes digitales"
-                        >
-                        <span class="image-index">03 / CHARACTER ART</span>
-                        <span class="image-arrow">↗</span>
-                    </div>
-
-                    <div class="project-info">
-                        <div>
-                            <span class="project-category">ILUSTRACIÓN · MODELADO</span>
-                            <h3>Character Studies</h3>
-                        </div>
-
-                        <p>
-                            Diseño de personajes, pruebas de estilo,
-                            siluetas y exploración de formas.
-                        </p>
+                        <span class="project-symbol">♡</span>
                     </div>
                 </article>
 
@@ -215,26 +140,23 @@
         </section>
 
 
-        <!-- LABORATORIO GENERATIVO -->
+        <!-- GENERATIVE ART -->
         <section class="laboratory section" id="laboratorio">
 
             <div class="section-heading">
                 <div>
-                    <span class="eyebrow">02 — EXPERIMENTO INTERACTIVO</span>
-                    <h2>Green Dreams<span>.</span></h2>
+                    <span class="eyebrow">02 — GENERATIVE ART</span>
+                    <h2>Green Dreams<span>✳</span></h2>
                 </div>
 
-                <p class="section-intro">
-                    Una pequeña exploración de arte generativo
-                    construida con HTML Canvas y JavaScript.
-                </p>
+                <span class="heading-side">CANVAS EXPERIMENT</span>
             </div>
 
             <div class="lab-layout">
 
                 <div class="canvas-frame">
                     <div class="canvas-top">
-                        <span>GENERATIVE CHARACTER / 001</span>
+                        <span>BOTANICAL GIRL — 001</span>
                         <span id="generation-number">GEN 001</span>
                     </div>
 
@@ -243,27 +165,24 @@
                     </canvas>
 
                     <div class="canvas-bottom">
-                        <span>RANDOMIZED BOTANICAL STUDY</span>
-                        <span>W.C. © 2026</span>
+                        <span>FLOWERS IN MOTION</span>
+                        <span>✿ ✳ ✿</span>
                     </div>
                 </div>
 
 
                 <div class="lab-controls">
+                    <span class="control-label">A LITTLE EXPERIMENT</span>
 
-                    <span class="control-label">THE CONCEPT</span>
-
-                    <h3>Una chica, un jardín y un mundo imaginario.</h3>
+                    <h3>Let it bloom.</h3>
 
                     <p>
-                        Green Dreams genera una ilustración original
-                        inspirada en la estética anime, la naturaleza
-                        y las composiciones botánicas.
+                        Una chica, flores y un mundo de color.
                     </p>
 
                     <div class="control-divider"></div>
 
-                    <span class="control-label">01 — COLOR PALETTE</span>
+                    <span class="control-label">CHOOSE YOUR MOOD</span>
 
                     <div class="palette-list">
                         <button class="palette-option selected" data-palette="0">
@@ -277,26 +196,19 @@
                         </button>
                     </div>
 
-                    <div class="control-divider"></div>
-
-                    <span class="control-label">02 — GENERATION</span>
-
                     <button class="generate-button" id="generate-btn">
-                        GENERAR NUEVA ILUSTRACIÓN
-                        <span>↗</span>
+                        <span>NEW GENERATION</span>
+                        <span>✳</span>
                     </button>
 
                     <button class="download-button" id="download-btn">
-                        DESCARGAR COMO PNG
+                        <span>DOWNLOAD PNG</span>
                         <span>↓</span>
                     </button>
 
-                    <p class="lab-footnote">
-                        Cada generación modifica la composición,
-                        los elementos decorativos y algunos detalles
-                        del personaje.
-                    </p>
-
+                    <span class="lab-footnote">
+                        MADE WITH HTML CANVAS + JAVASCRIPT
+                    </span>
                 </div>
 
             </div>
@@ -308,54 +220,38 @@
 
             <div class="section-heading">
                 <div>
-                    <span class="eyebrow">03 — SONIDO E IMAGEN</span>
-                    <h2>Multimedia<span>.</span></h2>
+                    <span class="eyebrow">03 — SOUND & MOTION</span>
+                    <h2>Multimedia<span>♡</span></h2>
                 </div>
-
-                <p class="section-intro">
-                    El sonido y el movimiento también forman
-                    parte de mi proceso creativo.
-                </p>
             </div>
 
             <div class="media-grid">
 
                 <article class="media-card">
-                    <div class="media-heading">
+                    <div class="media-title">
                         <span class="media-icon">♫</span>
                         <div>
-                            <span class="control-label">AUDIO EXPERIMENTAL</span>
+                            <span class="control-label">LISTEN</span>
                             <h3>Sound selection</h3>
                         </div>
                     </div>
 
-                    <p>
-                        Una muestra de exploración sonora y ambiente.
-                    </p>
-
                     <audio controls preload="metadata">
                         <source src="assets/audio/audio.mp3" type="audio/mpeg">
-                        Tu navegador no soporta audio HTML5.
                     </audio>
                 </article>
 
-
                 <article class="media-card">
-                    <div class="media-heading">
+                    <div class="media-title">
                         <span class="media-icon">▶</span>
                         <div>
-                            <span class="control-label">VIDEO EXPERIMENTAL</span>
+                            <span class="control-label">WATCH</span>
                             <h3>Motion studies</h3>
                         </div>
                     </div>
 
-                    <p>
-                        Una muestra de animación, movimiento y narrativa visual.
-                    </p>
-
                     <video controls preload="metadata">
                         <source src="assets/video/video.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
                     </video>
                 </article>
 
@@ -363,45 +259,33 @@
         </section>
 
 
-        <!-- CONTACTO -->
+        <!-- CONTACT -->
         <section class="contact section" id="contacto">
 
             <div class="contact-layout">
 
                 <div class="contact-heading">
-                    <span class="eyebrow">04 — HABLEMOS</span>
-
-                    <h2>
-                        ¿Creamos<br>
-                        algo <em>juntos?</em>
-                    </h2>
-
-                    <p>
-                        Este formulario es una demostración de interfaz.
-                        No envía ni almacena información.
-                    </p>
-
-                    <div class="contact-decoration">✳</div>
+                    <span class="eyebrow">04 — SAY HELLO</span>
+                    <h2>Let's make<br><em>something.</em></h2>
+                    <span class="contact-flower">✿</span>
                 </div>
-
 
                 <form id="contact-form" class="contact-form">
 
                     <div class="form-row">
-
                         <div class="form-field">
-                            <label for="name">Tu nombre</label>
+                            <label for="name">Nombre</label>
                             <input
                                 type="text"
                                 id="name"
                                 name="name"
-                                placeholder="Nombre ficticio"
+                                placeholder="Tu nombre"
                                 required
                             >
                         </div>
 
                         <div class="form-field">
-                            <label for="email">Tu correo</label>
+                            <label for="email">Correo</label>
                             <input
                                 type="email"
                                 id="email"
@@ -410,73 +294,50 @@
                                 required
                             >
                         </div>
-
                     </div>
 
-
                     <div class="form-field">
-                        <label for="project-type">Tipo de proyecto</label>
-
+                        <label for="project-type">Proyecto</label>
                         <select id="project-type" name="project-type" required>
-                            <option value="" disabled selected>
-                                Selecciona una opción
-                            </option>
-                            <option value="diseno">Diseño gráfico</option>
-                            <option value="videojuego">Videojuegos</option>
+                            <option value="" disabled selected>Seleccionar</option>
+                            <option value="diseno">Diseño</option>
+                            <option value="videojuego">Videojuego</option>
                             <option value="ilustracion">Ilustración</option>
-                            <option value="multimedia">Producción multimedia</option>
+                            <option value="multimedia">Multimedia</option>
                             <option value="otro">Otro</option>
                         </select>
                     </div>
 
-
                     <div class="form-field">
-                        <label>Modalidad de colaboración</label>
-
+                        <label>Modalidad</label>
                         <div class="radio-options">
-                            <label>
-                                <input type="radio" name="modality" value="remota" required>
-                                Remota
-                            </label>
-
-                            <label>
-                                <input type="radio" name="modality" value="presencial">
-                                Presencial
-                            </label>
-
-                            <label>
-                                <input type="radio" name="modality" value="indiferente">
-                                Indiferente
-                            </label>
+                            <label><input type="radio" name="modality" value="remota" required> Remota</label>
+                            <label><input type="radio" name="modality" value="presencial"> Presencial</label>
+                            <label><input type="radio" name="modality" value="indiferente"> Cualquiera</label>
                         </div>
                     </div>
 
-
                     <div class="form-field">
-                        <label for="message">Cuéntame tu idea</label>
-
+                        <label for="message">Mensaje</label>
                         <textarea
                             id="message"
                             name="message"
                             rows="3"
-                            placeholder="Escribe un mensaje ficticio..."
+                            placeholder="Cuéntame tu idea..."
                             required
                         ></textarea>
                     </div>
 
-
                     <button type="submit" class="send-button">
-                        PROBAR FORMULARIO
-                        <span>↗</span>
+                        ENVIAR MENSAJE <span>↗</span>
                     </button>
 
                     <p class="form-notice">
-                        * No introduzcas información personal real.
-                        Este formulario solo demuestra su funcionamiento visual.
+                        Formulario demostrativo. No envía ni almacena datos.
+                        Utiliza información ficticia.
                     </p>
 
                     <p id="form-response" aria-live="polite"></p>
-
                 </form>
 
             </div>
@@ -485,18 +346,10 @@
     </main>
 
 
-    <!-- PIE DE PÁGINA -->
     <footer class="footer">
-
-        <a href="../index.html" class="back-link">
-            <span>←</span>
-            VOLVER A LA LANDING DEL EQUIPO
-        </a>
-
-        <span class="footer-brand">WENDY CAGUAMAS © 2026</span>
-
-        <a href="#inicio" class="back-top">VOLVER ARRIBA ↑</a>
-
+        <a href="../index.html" class="back-link">← VOLVER AL EQUIPO</a>
+        <span>WENDY CAGUAMAS © 2026</span>
+        <a href="#inicio">BACK TO TOP ↑</a>
     </footer>
 
 </body>
