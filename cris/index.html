@@ -8,48 +8,182 @@
 </head>
 <body>
     <header>
-        <div class = "Nombre">NO SE ME OCURRE <span>NADA</span> </div>
+        <div class="Nombre">CRISTOPHER <span>B.</span></div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre-mi">Sobre mi</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#trabajos">Trabajos</a>
+        </nav>
+<a href="../../index.html" class="volver-equipo">
+    Volver al equipo
+</a>
     </header>
-    <section class="Inicio">
+
+    <section class="Inicio" id="inicio">
         <div class="Inicio-texto">
-            <p>DISEÑO - CREATIVIDAD - PUBLICIDAD</p>
-            <h1>Hola, soy <br> <span>Cristopher</span><br>Barrera</h1>
-            <p>Estudiante de Diseño Multimedia,
+            <p class="subtitulo">DISEÑO - CREATIVIDAD - PUBLICIDAD</p>
+            <h1>Hola, soy <br><span>Cristopher</span><br>Barrera</h1>
+            <p>
+                Estudiante de Diseño Multimedia,
                 jugador profesional de Free Fire,
-                arena 25 en Clash Royale,
-                amo la musica, programacion y la animacion. 
+                arena 25 en Clash Royale.
+                Amo la musica, programacion y animacion.
             </p>
+            <a href="#trabajos" class="boton">Ver mis trabajos</a>
         </div>
+
         <div class="imagen_1">
-            <img src="imagenes/rango.webp" alt="Foto Mia">
+            <img src="imagenes/yo4.jpeg" alt="Imagen de Cristopher">
         </div>
     </section>
-    <section class="yo">
+
+    <section class="yo" id="sobre-mi">
         <h1>Sobre <span>mi</span></h1>
-        <br>
-        <p class="descripcion">Soy un estudiante de Diseño Multimedia que esta cursando el 3 ciclo,
-            me gusta la animacion, la programacion y el diseño grafico.
-            Actualmente estudio en la Universidad Politecnica Salesiana
-            (UPS). Disfruto de crear soluciones y poner a prueba mis capacidades.
+        <p class="descripcion">
+            Soy un estudiante de Diseño Multimedia que esta cursando el 3 ciclo.
+            Me gusta la animacion, la programacion y el diseño grafico.
+            Actualmente estudio en la Universidad Politecnica Salesiana (UPS).
+            Disfruto de crear soluciones y poner a prueba mis capacidades.
         </p>
     </section>
-    <section class="skills">
-        <h1>Mis <span>habilidades</span></h1>
-        <br>
-        <p >Estas son algunas de las habilidades que he desarrollado.</p>
+
+    <section class="skills" id="habilidades">
+        <div class="titulo-seccion">
+            <h1>Mis <span>habilidades</span></h1>
+            <p>Estas son algunas de las habilidades que he desarrollado.</p>
+        </div>
+
         <div class="habilidad">
             <h2>Diseño</h2>
-            <p>Diseño grafico, edicion de fotos, etc.</p>
+            <p>Diseño grafico, edicion de fotos, ilustracion y composicion visual.</p>
         </div>
+
         <div class="habilidad">
             <h2>Multimedia</h2>
             <p>Edicion de video, animacion 2D y 3D, motion graphics y produccion audiovisual.</p>
         </div>
+
         <div class="habilidad">
             <h2>Desarrollo</h2>
-            <p>Desarrollo de codigo basico en Java Script, HTML, CSS Y CANVAS</p>
+            <p>Desarrollo de codigo basico en JavaScript, HTML, CSS y Canvas.</p>
         </div>
     </section>
+
+    <section class="trabajos" id="trabajos">
+        <div class="titulo-seccion">
+            <h1>Mis <span>trabajos</span></h1>
+            <p>Una seleccion de proyectos y trabajos que he realizado.</p>
+        </div>
+
+        <div class="contenedor-trabajos">
+
+            <div class="proyecto">
+                <div class="media-proyecto">
+                    <img src="imagenes/Afiche.jpg" alt="Proyecto de diseño grafico">
+                </div>
+                <div class="info-proyecto">
+                    <h2>Diseño grafico</h2>
+                    <p>Proyecto de composicion visual y creatividad grafica.</p>
+                    <span>Diseño / Photoshop</span>
+                </div>
+            </div>
+
+            <div class="proyecto">
+                <div class="media-proyecto">
+                    <video controls>
+                        <source src="videos/cofato anuncio.mp4" type="video/mp4">
+                        Tu navegador no puede reproducir este video.
+                    </video>
+                </div>
+                <div class="info-proyecto">
+                    <h2>Animacion</h2>
+                    <p>Experimentacion con movimiento y narracion visual.</p>
+                    <span>Animacion / After Effects</span>
+                </div>
+            </div>
+
+            <div class="proyecto">
+                <div class="media-proyecto">
+                    <img class="vertical" src="imagenes/Rammstein Poster Brutalismo.png" alt="Poster de Rammstein">
+                </div>
+                <div class="info-proyecto">
+                    <h2>Diseño grafico</h2>
+                    <p>Proyecto de composicion visual y creatividad grafica.</p>
+                    <span>Diseño / Photoshop</span>
+                </div>
+            </div>
+                    <section class="experiencia">
+            <h1>Mi experiencia <span>multimedia</span></h1>
+            <p>La musica y el sonido son parte importante de mi inspiracion creativa.</p>
+
+            <h2>Audio</h2>
+            <audio controls>
+                <source src="audios/Benny Benassi - Satisfaction.mp3" type="audio/mpeg">
+                Tu navegador no soporta audio.
+            </audio>
+
+            <h2>Video</h2>
+            <p>Me interesa la animacion y la produccion audiovisual.</p>
+        </section>
+
+        </div>
+    </section>
+    <section class="contacto">
+    <h1>Contacto</h1>
+
+    <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+
+        <label for="correo">Correo electronico:</label>
+        <input type="email" id="correo" required>
+
+        <label for="tipo">Tipo de proyecto:</label>
+        <select id="tipo" required>
+            <option value="">Selecciona una opcion</option>
+            <option>Diseño grafico</option>
+            <option>Animacion</option>
+            <option>Edicion de video</option>
+            <option>Desarrollo web</option>
+        </select>
+
+        <p>Modalidad de colaboracion:</p>
+
+        <label>
+            <input type="radio" name="modalidad" value="presencial" required>
+            Presencial
+        </label>
+
+        <label>
+            <input type="radio" name="modalidad" value="virtual">
+            Virtual
+        </label>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" required></textarea>
+
+        <button type="submit">Enviar</button>
+
+        <p>Formulario demostrativo. No envia ni almacena informacion.</p>
+    </form>
+</section>
+
+    <footer>
+        <div class="footer-contenido">
+            <h2>CRISTOPHER <span>B.</span></h2>
+            <p>Diseño, creatividad y experimentacion.</p>
+
+            <div class="redes">
+                <a href="https://www.instagram.com/crhystu/" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/Crhystu/" target="_blank">Facebook</a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>© 2026 Cristopher Barrera - Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
