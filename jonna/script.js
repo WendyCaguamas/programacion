@@ -1,11 +1,9 @@
+
 /* ==========================================
    WENDY CAGUAMAS — INTERACTIVE SCRIPT
 ========================================== */
 
-
-/* ==========================================
-   1. MOBILE MENU
-========================================== */
+/* 1. MOBILE MENU */
 
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
@@ -21,9 +19,7 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 });
 
 
-/* ==========================================
-   2. ACTIVE NAVIGATION
-========================================== */
+/* 2. ACTIVE NAVIGATION */
 
 const observedSections = document.querySelectorAll("main section[id]");
 const navItems = document.querySelectorAll(".nav-links a");
@@ -39,16 +35,12 @@ const observer = new IntersectionObserver(entries => {
             });
         }
     });
-}, {
-    threshold: 0.35
-});
+}, { threshold: 0.35 });
 
 observedSections.forEach(section => observer.observe(section));
 
 
-/* ==========================================
-   3. CANVAS SETUP
-========================================== */
+/* 3. CANVAS SETUP */
 
 const canvas = document.getElementById("art-canvas");
 const ctx = canvas.getContext("2d");
@@ -65,13 +57,15 @@ let staticLeaves = [];
 let movingLeaves = [];
 let backgroundFlowers = [];
 
-let animationFrame;
 let lastTimestamp = 0;
 
+// Mirada y respiración
+let gazeX = 0;
+let gazeY = 0;
+let breathTime = 0;
 
-/* ==========================================
-   4. COLOR PALETTES
-========================================== */
+
+/* 4. COLOR PALETTES */
 
 const palettes = [
     {
@@ -90,7 +84,6 @@ const palettes = [
         leaf: "#6f9951",
         text: "#405b38"
     },
-
     {
         background: "#f2dce5",
         background2: "#e2b9ca",
@@ -110,9 +103,7 @@ const palettes = [
 ];
 
 
-/* ==========================================
-   5. HELPER FUNCTIONS
-========================================== */
+/* 5. HELPER FUNCTIONS */
 
 function random(min, max) {
     return Math.random() * (max - min) + min;
@@ -163,9 +154,7 @@ function strokeLine(x1, y1, x2, y2, color, width = 2) {
 }
 
 
-/* ==========================================
-   6. BACKGROUND
-========================================== */
+/* 6. BACKGROUND */
 
 function drawBackground(p) {
     const gradient = ctx.createLinearGradient(0, 0, W, H);
@@ -194,9 +183,7 @@ function drawBackground(p) {
 }
 
 
-/* ==========================================
-   7. FLOWER DRAWING
-========================================== */
+/* 7. FLOWER DRAWING */
 
 function drawFlower(x, y, size, color, center, rotation = 0) {
     ctx.save();
@@ -205,7 +192,6 @@ function drawFlower(x, y, size, color, center, rotation = 0) {
 
     for (let i = 0; i < 6; i++) {
         const angle = (Math.PI * 2 / 6) * i;
-
         const px = Math.cos(angle) * size * 0.62;
         const py = Math.sin(angle) * size * 0.62;
 
@@ -213,14 +199,11 @@ function drawFlower(x, y, size, color, center, rotation = 0) {
     }
 
     circle(0, 0, size * 0.25, center);
-
     ctx.restore();
 }
 
 
-/* ==========================================
-   8. LEAF DRAWING
-========================================== */
+/* 8. LEAF DRAWING */
 
 function drawLeaf(x, y, size, angle, color) {
     ctx.save();
@@ -236,14 +219,11 @@ function drawLeaf(x, y, size, angle, color) {
     ctx.fill();
 
     strokeLine(0, 0, size * 1.4, 0, "#ffffff55", 1);
-
     ctx.restore();
 }
 
 
-/* ==========================================
-   9. CREATE DECORATIVE ELEMENTS
-========================================== */
+/* 9. CREATE DECORATIVE ELEMENTS */
 
 function createFlowers() {
     flowers = [];
@@ -251,7 +231,7 @@ function createFlowers() {
     movingLeaves = [];
     backgroundFlowers = [];
 
-    // Flores animadas con movimiento lento.
+    // Flores animadas
     for (let i = 0; i < 18; i++) {
         flowers.push({
             x: random(45, W - 45),
@@ -266,7 +246,7 @@ function createFlowers() {
         });
     }
 
-    // Hojas pequeñas completamente estáticas.
+    // Hojas pequeñas estáticas
     for (let i = 0; i < 34; i++) {
         staticLeaves.push({
             x: random(55, W - 55),
@@ -276,7 +256,7 @@ function createFlowers() {
         });
     }
 
-    // Hojas medianas y grandes con movimiento suave.
+    // Hojas medianas y grandes animadas
     for (let i = 0; i < 18; i++) {
         const size = random(12, 24);
 
@@ -292,7 +272,7 @@ function createFlowers() {
         });
     }
 
-    // Flores adicionales fijas en el fondo.
+    // Flores adicionales fijas
     for (let i = 0; i < 20; i++) {
         backgroundFlowers.push({
             x: random(48, W - 48),
@@ -305,16 +285,11 @@ function createFlowers() {
 }
 
 
-/* ==========================================
-   10. DRAW STATIC BOTANICAL DETAILS
-========================================== */
+/* 10. STATIC BOTANICAL DETAILS */
 
 function drawBotanicalDetails(p) {
-
     backgroundFlowers.forEach(flower => {
-        const color = flower.colorType === 0
-            ? p.flower
-            : p.leaf;
+        const color = flower.colorType === 0 ? p.flower : p.leaf;
 
         drawFlower(
             flower.x,
@@ -326,7 +301,6 @@ function drawBotanicalDetails(p) {
         );
     });
 
-    // Hojas pequeñas fijas.
     staticLeaves.forEach(leaf => {
         drawLeaf(
             leaf.x,
@@ -337,47 +311,29 @@ function drawBotanicalDetails(p) {
         );
     });
 
-    // Puntos decorativos fijos.
     staticLeaves.forEach((leaf, index) => {
         if (index % 2 === 0) {
-            circle(
-                leaf.x + 8,
-                leaf.y - 7,
-                1.5,
-                p.dark
-            );
+            circle(leaf.x + 8, leaf.y - 7, 1.5, p.dark);
         }
     });
 }
 
 
-/* ==========================================
-   11. ANIMATE FLOWERS AND LARGE LEAVES
-========================================== */
+/* 11. ANIMATE FLOWERS AND LARGE LEAVES */
 
 function animateFlowers(p, deltaSeconds) {
-
-    // Flores pequeñas animadas lentamente.
     flowers.forEach(flower => {
-
         flower.y -= flower.speed * deltaSeconds;
-
-        flower.x += Math.sin(flower.phase) *
-            flower.sway * deltaSeconds;
-
+        flower.x += Math.sin(flower.phase) * flower.sway * deltaSeconds;
         flower.phase += 0.7 * deltaSeconds;
-
-        flower.rotation +=
-            flower.rotationSpeed * deltaSeconds;
+        flower.rotation += flower.rotationSpeed * deltaSeconds;
 
         if (flower.y < 45) {
             flower.y = H - 45;
             flower.x = random(45, W - 45);
         }
 
-        const color = flower.colorType === 0
-            ? p.flower
-            : p.leaf;
+        const color = flower.colorType === 0 ? p.flower : p.leaf;
 
         drawFlower(
             flower.x,
@@ -389,11 +345,8 @@ function animateFlowers(p, deltaSeconds) {
         );
     });
 
-    // Solo se mueven las hojas medianas y grandes.
     movingLeaves.forEach(leaf => {
-
         leaf.phase += leaf.speed * deltaSeconds;
-
         leaf.angle = leaf.baseAngle +
             Math.sin(leaf.phase) * leaf.sway;
 
@@ -408,12 +361,9 @@ function animateFlowers(p, deltaSeconds) {
 }
 
 
-/* ==========================================
-   12. BACK HAIR
-========================================== */
+/* 12. BACK HAIR */
 
 function drawBackHair(p) {
-
     ctx.fillStyle = p.hair;
 
     ctx.beginPath();
@@ -430,7 +380,6 @@ function drawBackHair(p) {
     ctx.closePath();
     ctx.fill();
 
-    // Líneas del cabello sin variaciones aleatorias.
     for (let i = 0; i < 6; i++) {
         strokeLine(
             275 + i * 28,
@@ -444,12 +393,9 @@ function drawBackHair(p) {
 }
 
 
-/* ==========================================
-   13. BODY AND CLOTHES
-========================================== */
+/* 13. BODY AND CLOTHES */
 
 function drawBody(p) {
-
     // Neck
     ctx.fillStyle = p.skin;
     ctx.fillRect(326, 440, 68, 90);
@@ -515,12 +461,9 @@ function drawBody(p) {
 }
 
 
-/* ==========================================
-   14. FACE
-========================================== */
+/* 14. FACE */
 
 function drawFace(p) {
-
     // Ears
     ellipse(270, 345, 20, 31, p.skin);
     ellipse(450, 345, 20, 31, p.skin);
@@ -544,14 +487,16 @@ function drawFace(p) {
     ellipse(315, 350, 20, 27, "#fff9f0");
     ellipse(405, 350, 20, 27, "#fff9f0");
 
-    ellipse(317, 354, 12, 21, p.eyes);
-    ellipse(407, 354, 12, 21, p.eyes);
+    // Pupils: direction changes with each generation
+    ellipse(317 + gazeX, 354 + gazeY, 12, 21, p.eyes);
+    ellipse(407 + gazeX, 354 + gazeY, 12, 21, p.eyes);
 
-    ellipse(317, 359, 6, 13, "#252b22");
-    ellipse(407, 359, 6, 13, "#252b22");
+    ellipse(317 + gazeX, 359 + gazeY, 6, 13, "#252b22");
+    ellipse(407 + gazeX, 359 + gazeY, 6, 13, "#252b22");
 
-    circle(322, 344, 5, "#ffffff");
-    circle(412, 344, 5, "#ffffff");
+    // Eye highlights
+    circle(322 + gazeX, 344 + gazeY, 5, "#ffffff");
+    circle(412 + gazeX, 344 + gazeY, 5, "#ffffff");
 
     // Eyelashes
     strokeLine(295, 335, 285, 325, p.hair, 3);
@@ -573,12 +518,9 @@ function drawFace(p) {
 }
 
 
-/* ==========================================
-   15. FRONT HAIR
-========================================== */
+/* 15. FRONT HAIR */
 
 function drawFrontHair(p) {
-
     ctx.fillStyle = p.hair;
 
     ctx.beginPath();
@@ -623,12 +565,9 @@ function drawFrontHair(p) {
 }
 
 
-/* ==========================================
-   16. CHARACTER DECORATIONS
-========================================== */
+/* 16. CHARACTER DECORATIONS */
 
 function drawCharacterDetails(p) {
-
     // Earrings
     circle(270, 380, 5, p.flowerCenter);
     circle(450, 380, 5, p.flowerCenter);
@@ -640,18 +579,15 @@ function drawCharacterDetails(p) {
     // Pendant
     drawFlower(360, 550, 10, p.flower, p.flowerCenter);
 
-    // Decorative clothing flowers
+    // Clothing flowers
     drawFlower(295, 565, 9, p.flower, p.flowerCenter);
     drawFlower(425, 565, 9, p.flower, p.flowerCenter);
 }
 
 
-/* ==========================================
-   17. DRAW STATIC COMPOSITION
-========================================== */
+/* 17. DRAW STATIC COMPOSITION */
 
 function drawBase() {
-
     const p = palettes[paletteIndex];
 
     createFlowers();
@@ -659,46 +595,56 @@ function drawBase() {
 }
 
 
-/* ==========================================
-   18. ANIMATION LOOP
-========================================== */
+/* 18. ANIMATION LOOP */
 
 function animate(timestamp = 0) {
-
     const p = palettes[paletteIndex];
 
-    // Limitar delta para evitar saltos.
     const deltaSeconds = lastTimestamp
         ? Math.min((timestamp - lastTimestamp) / 1000, 0.04)
         : 0;
 
     lastTimestamp = timestamp;
 
-    // Redibujar la composición sin cambiar su distribución.
-    drawBaseFrame(p);
+    // Slow breathing cycle
+    breathTime += deltaSeconds * 1.5;
 
-    // Animar únicamente flores y hojas grandes.
+    drawBaseFrame(p);
     animateFlowers(p, deltaSeconds);
 
-    animationFrame = requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
 }
 
 
-function drawBaseFrame(p) {
+/* 19. DRAW CHARACTER AND SCENE */
 
+function drawBaseFrame(p) {
     ctx.clearRect(0, 0, W, H);
 
     drawBackground(p);
     drawBotanicalDetails(p);
 
-    // Personaje original.
+    // Subtle breathing movement
+    const breathing = Math.sin(breathTime);
+    const breathingScale = 1 + breathing * 0.006;
+    const breathingOffset = breathing * 1.2;
+
+    ctx.save();
+
+    ctx.translate(360, 700 + breathingOffset);
+    ctx.scale(1, breathingScale);
+    ctx.translate(-360, -700);
+
+    // Original character design
     drawBackHair(p);
     drawBody(p);
     drawFace(p);
     drawFrontHair(p);
     drawCharacterDetails(p);
 
-    // Textos del Canvas.
+    ctx.restore();
+
+    // Canvas typography
     ctx.textAlign = "center";
     ctx.fillStyle = p.text;
 
@@ -719,14 +665,29 @@ function drawBaseFrame(p) {
 }
 
 
-/* ==========================================
-   19. GENERATE NEW CHARACTER
-========================================== */
+/* 20. GENERATE NEW CHARACTER */
 
 function generateArtwork() {
-
     generation++;
     characterStyle = randomInt(0, 1);
+
+    // New gaze direction
+    const gazes = [
+        { x: 0, y: 0 },       // Front
+        { x: -5, y: 0 },      // Left
+        { x: 5, y: 0 },       // Right
+        { x: 0, y: -4 },      // Up
+        { x: -3, y: -2 },     // Upper left
+        { x: 3, y: -2 }       // Upper right
+    ];
+
+    const newGaze = pick(gazes);
+
+    gazeX = newGaze.x;
+    gazeY = newGaze.y;
+
+    breathTime = 0;
+    lastTimestamp = 0;
 
     drawBase();
 
@@ -735,16 +696,12 @@ function generateArtwork() {
 }
 
 
-/* ==========================================
-   20. PALETTE BUTTONS
-========================================== */
+/* 21. PALETTE BUTTONS */
 
 const paletteButtons = document.querySelectorAll(".palette-option");
 
 paletteButtons.forEach(button => {
-
     button.addEventListener("click", () => {
-
         paletteIndex = Number(button.dataset.palette);
 
         paletteButtons.forEach(item => {
@@ -755,16 +712,12 @@ paletteButtons.forEach(button => {
 
         generateArtwork();
     });
-
 });
 
 
-/* ==========================================
-   21. GENERATE BUTTON
-========================================== */
+/* 22. GENERATE BUTTON */
 
 document.getElementById("generate-btn").addEventListener("click", () => {
-
     const button = document.getElementById("generate-btn");
 
     button.disabled = true;
@@ -779,12 +732,9 @@ document.getElementById("generate-btn").addEventListener("click", () => {
 });
 
 
-/* ==========================================
-   22. DOWNLOAD PNG
-========================================== */
+/* 23. DOWNLOAD PNG */
 
 document.getElementById("download-btn").addEventListener("click", () => {
-
     const link = document.createElement("a");
 
     link.download = `green-dreams-${generation}.png`;
@@ -794,15 +744,12 @@ document.getElementById("download-btn").addEventListener("click", () => {
 });
 
 
-/* ==========================================
-   23. DEMO CONTACT FORM
-========================================== */
+/* 24. DEMO CONTACT FORM */
 
 const contactForm = document.getElementById("contact-form");
 const formResponse = document.getElementById("form-response");
 
 contactForm.addEventListener("submit", event => {
-
     event.preventDefault();
 
     formResponse.textContent =
@@ -812,9 +759,7 @@ contactForm.addEventListener("submit", event => {
 });
 
 
-/* ==========================================
-   24. START
-========================================== */
+/* 25. START */
 
 drawBase();
-animate();
+requestAnimationFrame(animate);
