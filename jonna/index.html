@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#d2ed65">
 
-    <meta name="description" content="Wendy Caguamas — artista digital, ilustrador y desarrollador de videojuegos indie.">
+    <meta name="description"
+        content="Wendy Caguamas — artista digital, ilustrador y desarrollador de videojuegos.">
 
     <title>Wendy Caguamas ★ Creative Archive</title>
 
@@ -15,49 +16,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- ICONOS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- ARCHIVOS -->
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 
 <body>
 
-    <!-- BARRA DE PROGRESO -->
     <div class="scroll-progress" id="scroll-progress"></div>
-
-    <!-- DECORACIONES -->
-    <div class="background-decoration decoration-one">✳</div>
-    <div class="background-decoration decoration-two">✿</div>
-    <div class="background-decoration decoration-three">♡</div>
 
     <!-- TOPBAR -->
     <div class="topbar">
         <span>✳ ARTISTA DIGITAL INDEPENDIENTE</span>
-        <span>HECHO CON AMOR ♡ / <span id="current-year-top">2026</span></span>
+        <span>MADE WITH LOVE ♡ / 2026</span>
     </div>
+
 
     <!-- NAVBAR -->
     <header class="navbar">
 
-        <a href="#home" class="logo">
-            WC<span>✳</span>
-        </a>
+        <a href="#home" class="logo">WC<span>✳</span></a>
 
         <nav class="nav-links" id="nav-links">
-            <a href="#about">SOBRE MÍ</a>
-            <a href="#art">PROYECTOS</a>
-            <a href="#games">MULTIMEDIA</a>
+            <a href="#home">INICIO</a>
+            <a href="#art">PORTFOLIO</a>
+            <a href="#laboratory">GENERATIVE LAB</a>
+            <a href="#multimedia">MULTIMEDIA</a>
             <a href="#contact">CONTACTO</a>
         </nav>
-
-        <a href="#contact" class="nav-contact">
-            HABLEMOS ↗
-        </a>
 
         <button class="menu-toggle" id="menu-toggle"
             aria-label="Abrir menú" aria-expanded="false">
@@ -66,11 +58,12 @@
 
     </header>
 
+
     <main>
 
-        <!-- ================================= -->
-        <!-- HERO -->
-        <!-- ================================= -->
+        <!-- =====================================
+             01. PRESENTACIÓN
+        ====================================== -->
 
         <section class="hero" id="home">
 
@@ -94,29 +87,30 @@
                     <p class="hero-description reveal">
                         Un poco de arte, un poco de caos.
 
-                        Soy un chico que disfruta crear personajes,
-                        explorar mundos imaginarios y experimentar
-                        con diferentes formas de expresión multimedia.
+                        Soy un chico que utiliza Wendy como nombre
+                        artístico. Me apasiona crear personajes,
+                        experimentar con estilos visuales y construir
+                        pequeños universos mediante el arte digital
+                        y los videojuegos.
                     </p>
 
                     <a href="#art" class="main-button reveal">
-                        EXPLORAR MIS TRABAJOS
-                        <span>↗</span>
+                        EXPLORAR MI UNIVERSO <span>↗</span>
                     </a>
 
                     <div class="hero-note reveal">
-                        <span>♡</span>
-                        hecho de píxeles, sueños e ideas extrañas
+                        ♡ hecho de píxeles, sueños e ideas extrañas
                     </div>
 
                 </div>
 
+
                 <div class="hero-image reveal">
 
                     <div class="image-sticker">
-                        ARCHIVO<br>
-                        CREATIVO<br>
-                        NO. 001
+                        CREATIVE<br>
+                        ARCHIVE<br>
+                        Nº 001
                     </div>
 
                     <img
@@ -134,95 +128,27 @@
 
             </div>
 
+
             <div class="hero-bottom">
                 <span>DESLIZA PARA EXPLORAR ↓</span>
                 <span>EL ARTE ES MI LENGUAJE FAVORITO.</span>
             </div>
 
-            <div class="hero-floating-text">
-                CREATE · EXPLORE · REPEAT ·
-            </div>
-
         </section>
 
 
-        <!-- ================================= -->
-        <!-- SOBRE MÍ -->
-        <!-- ================================= -->
 
-        <section class="about section" id="about">
-
-            <div class="section-heading reveal">
-                <span>01 / EL ARTISTA</span>
-                <span>✳ SOBRE MÍ</span>
-            </div>
-
-            <div class="about-grid">
-
-                <div class="about-title reveal">
-
-                    <span class="mini-label">UN POCO SOBRE MI PERSONA</span>
-
-                    <h2>
-                        Solo un chico<br>
-                        creando <em>mundos.</em>
-                    </h2>
-
-                    <span class="scribble">♡ ♡ ♡</span>
-
-                </div>
-
-                <div class="about-description reveal">
-
-                    <p>
-                        ¡Hola! Soy Wendy Caguamas, un chico que utiliza
-                        Wendy como nombre artístico. Me interesa el arte
-                        digital y la creación de experiencias multimedia.
-                    </p>
-
-                    <p>
-                        Disfruto experimentar con ilustraciones 2D,
-                        modelado 3D, diseño de personajes, animación
-                        y desarrollo de videojuegos.
-                    </p>
-
-                    <p>
-                        Me gusta combinar diferentes estilos visuales
-                        para construir universos con personalidad propia.
-                        Este espacio reúne mis proyectos, ideas y
-                        experimentos creativos.
-                    </p>
-
-                    <div class="tags">
-                        <span>ILUSTRACIÓN 2D</span>
-                        <span>MODELADO 3D</span>
-                        <span>GAME DEV</span>
-                        <span>ANIMACIÓN</span>
-                        <span>CHARACTER DESIGN</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="about-bottom reveal">
-                <span>✳ CREATIVIDAD SIN REGLAS</span>
-                <span>DISEÑANDO MI PROPIO UNIVERSO ♡</span>
-            </div>
-
-        </section>
-
-
-        <!-- ================================= -->
-        <!-- PROYECTOS -->
-        <!-- ================================= -->
+        <!-- =====================================
+             02. PORTFOLIO
+        ====================================== -->
 
         <section class="art section" id="art">
 
             <div class="section-heading reveal">
-                <span>02 / DIARIO VISUAL</span>
-                <span>✿ MIS TRABAJOS CREATIVOS</span>
+                <span>01 / DIARIO VISUAL</span>
+                <span>✿ MIS TRABAJOS</span>
             </div>
+
 
             <div class="art-intro reveal">
 
@@ -236,16 +162,14 @@
                 </div>
 
                 <p>
-                    Una selección de proyectos, experimentos y propuestas
-                    relacionadas con el diseño multimedia.
+                    Ilustración, modelado 3D y mundos interactivos.
+                    Una pequeña muestra de mis intereses creativos.
                 </p>
 
             </div>
 
 
             <div class="gallery">
-
-                <!-- PROYECTO 1 -->
 
                 <article class="art-card tall reveal">
 
@@ -257,7 +181,6 @@
                                 alt="Escenario de videojuego"
                                 loading="lazy"
                             >
-
                             <span class="image-number">01</span>
                         </div>
 
@@ -268,15 +191,14 @@
                             <h3>F.E.M.B.O.Y.</h3>
 
                             <p>
-                                Proyecto de videojuego independiente con
-                                estética low poly y ambientación gótica.
-                                Combina diseño de personajes, narrativa
-                                visual y exploración de escenarios.
+                                Videojuego independiente con estética
+                                low poly, ambientación gótica, diseño
+                                de personajes y exploración de escenarios.
                             </p>
 
                             <p class="project-tool">
-                                <strong>Técnicas:</strong> Blender,
-                                modelado 3D y desarrollo de videojuegos.
+                                <strong>Herramientas:</strong>
+                                Blender y desarrollo de videojuegos.
                             </p>
 
                         </figcaption>
@@ -286,8 +208,6 @@
                 </article>
 
 
-                <!-- PROYECTO 2 -->
-
                 <article class="art-card reveal">
 
                     <figure>
@@ -295,10 +215,9 @@
                         <div class="art-image">
                             <img
                                 src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900"
-                                alt="Composición digital abstracta"
+                                alt="Arte digital abstracto"
                                 loading="lazy"
                             >
-
                             <span class="image-number">02</span>
                         </div>
 
@@ -315,8 +234,7 @@
                             </p>
 
                             <p class="project-tool">
-                                <strong>Técnica:</strong> Modelado 3D
-                                mediante Blender.
+                                <strong>Herramienta:</strong> Blender.
                             </p>
 
                         </figcaption>
@@ -326,8 +244,6 @@
                 </article>
 
 
-                <!-- PROYECTO 3 -->
-
                 <article class="art-card reveal">
 
                     <figure>
@@ -335,10 +251,9 @@
                         <div class="art-image">
                             <img
                                 src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=900"
-                                alt="Obra de arte e ilustración"
+                                alt="Referencia de ilustración"
                                 loading="lazy"
                             >
-
                             <span class="image-number">03</span>
                         </div>
 
@@ -349,14 +264,14 @@
                             <h3>Character Studies</h3>
 
                             <p>
-                                Propuestas de diseño de personajes,
-                                exploración de siluetas, paletas de colores
-                                y estilos de ilustración.
+                                Exploración de siluetas, personajes,
+                                paletas de colores y diferentes
+                                estilos de ilustración.
                             </p>
 
                             <p class="project-tool">
-                                <strong>Técnica:</strong> Ilustración
-                                digital y diseño conceptual.
+                                <strong>Técnica:</strong>
+                                Ilustración digital.
                             </p>
 
                         </figcaption>
@@ -366,8 +281,6 @@
                 </article>
 
 
-                <!-- PROYECTO 4 -->
-
                 <article class="art-card wide reveal">
 
                     <figure>
@@ -375,10 +288,9 @@
                         <div class="art-image">
                             <img
                                 src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=1200"
-                                alt="Composición artística experimental"
+                                alt="Composición digital experimental"
                                 loading="lazy"
                             >
-
                             <span class="image-number">04</span>
                         </div>
 
@@ -389,14 +301,9 @@
                             <h3>Something Strange & Beautiful</h3>
 
                             <p>
-                                Exploración de recursos visuales, colores,
-                                texturas y composiciones para desarrollar
+                                Colores, texturas y composiciones
+                                experimentales para desarrollar
                                 una identidad gráfica propia.
-                            </p>
-
-                            <p class="project-tool">
-                                <strong>Técnicas:</strong> Diseño digital
-                                y composición gráfica.
                             </p>
 
                         </figcaption>
@@ -408,53 +315,312 @@
             </div>
 
             <p class="gallery-note">
-                ✳ IMÁGENES DE REFERENCIA — REEMPLAZAR POR LOS TRABAJOS PROPIOS.
+                ✳ IMÁGENES DE REFERENCIA — REEMPLAZAR POR TRABAJOS PROPIOS.
             </p>
 
         </section>
 
 
-        <!-- ================================= -->
-        <!-- EXPERIENCIA MULTIMEDIA -->
-        <!-- ================================= -->
 
-        <section class="games section" id="games">
+        <!-- =====================================
+             03. LABORATORIO GENERATIVO
+        ====================================== -->
+
+        <section class="laboratory section" id="laboratory">
+
+            <div class="section-heading reveal">
+                <span>02 / CREATIVE CODING</span>
+                <span>✳ MI ESTUDIO GENERATIVO</span>
+            </div>
+
+
+            <div class="lab-intro reveal">
+
+                <div>
+
+                    <span class="mini-label">
+                        DISEÑO + CÓDIGO + EXPERIMENTACIÓN
+                    </span>
+
+                    <h2>
+                        GREEN<br>
+                        <em>DREAMS.</em>
+                    </h2>
+
+                </div>
+
+                <div class="lab-description">
+
+                    <span class="lab-number">GENERATIVE ART Nº 001</span>
+
+                    <p>
+                        ¿Y si cada ilustración fuera diferente?
+
+                        Green Dreams es un pequeño laboratorio
+                        de arte generativo donde el código crea
+                        retratos de una chica de estética anime,
+                        rodeada de naturaleza, flores y elementos
+                        fantásticos.
+                    </p>
+
+                    <p>
+                        Cada composición combina geometría,
+                        color y variaciones aleatorias para
+                        producir una nueva pieza visual.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- GENERADOR -->
+
+            <div class="generator reveal">
+
+
+                <!-- ENCABEZADO -->
+
+                <div class="generator-header">
+
+                    <div class="generator-brand">
+                        <span class="generator-symbol">✿</span>
+
+                        <div>
+                            <strong>GREEN DREAMS</strong>
+                            <small>CREATIVE GENERATOR / V.01</small>
+                        </div>
+                    </div>
+
+                    <span class="live-status">
+                        <span></span> GENERATIVE SYSTEM ONLINE
+                    </span>
+
+                </div>
+
+
+                <!-- CANVAS Y PANEL -->
+
+                <div class="generator-layout">
+
+
+                    <!-- ÁREA DE DIBUJO -->
+
+                    <div class="canvas-container">
+
+                        <div class="canvas-top-label">
+                            <span>FIG. 001 — DIGITAL PORTRAIT</span>
+                            <span>CANVAS / 900 × 1100</span>
+                        </div>
+
+                        <div class="canvas-frame">
+
+                            <canvas
+                                id="art-canvas"
+                                width="900"
+                                height="1100"
+                                aria-label="Ilustración generativa de una chica anime con temática botánica"
+                            ></canvas>
+
+                        </div>
+
+                        <div class="canvas-bottom-label">
+                            <span>ORIGINAL GENERATIVE ART</span>
+                            <span id="generation-number">GENERATION 001</span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- PANEL DE CONTROL -->
+
+                    <aside class="generator-panel">
+
+                        <div class="panel-heading">
+                            <span>✳ PANEL CREATIVO</span>
+                            <span>01—03</span>
+                        </div>
+
+
+                        <!-- PALETAS -->
+
+                        <div class="control-group">
+
+                            <label>SELECCIONAR PALETA</label>
+
+                            <p>
+                                Cambia la atmósfera de la ilustración.
+                            </p>
+
+
+                            <button
+                                class="palette-option selected"
+                                data-palette="0"
+                                type="button"
+                            >
+
+                                <span class="palette-name">
+                                    01 / GREEN GARDEN
+                                </span>
+
+                                <span class="palette-colors green-colors">
+                                    <i></i><i></i><i></i><i></i><i></i>
+                                </span>
+
+                            </button>
+
+
+                            <button
+                                class="palette-option"
+                                data-palette="1"
+                                type="button"
+                            >
+
+                                <span class="palette-name">
+                                    02 / PINK DREAMS
+                                </span>
+
+                                <span class="palette-colors pink-colors">
+                                    <i></i><i></i><i></i><i></i><i></i>
+                                </span>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="panel-divider"></div>
+
+
+                        <!-- GENERAR -->
+
+                        <div class="control-group">
+
+                            <label>NUEVA COMPOSICIÓN</label>
+
+                            <p>
+                                Cada generación crea un retrato
+                                con una distribución diferente.
+                            </p>
+
+                            <button
+                                id="generate-btn"
+                                class="generate-button"
+                                type="button"
+                            >
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                GENERAR ARTE
+                                <span>↗</span>
+                            </button>
+
+                        </div>
+
+
+                        <div class="panel-divider"></div>
+
+
+                        <!-- DESCARGAR -->
+
+                        <div class="control-group">
+
+                            <label>EXPORTAR CREACIÓN</label>
+
+                            <p>
+                                Guarda tu composición como imagen.
+                            </p>
+
+                            <button
+                                id="download-btn"
+                                class="download-button"
+                                type="button"
+                            >
+                                <i class="fa-solid fa-download"></i>
+                                GUARDAR PNG
+                            </button>
+
+                        </div>
+
+
+                        <!-- INFORMACIÓN -->
+
+                        <div class="generator-note">
+
+                            <span>✿</span>
+
+                            <p>
+                                No existen dos composiciones
+                                exactamente iguales. Experimenta,
+                                cambia los colores y crea tu propia
+                                colección de retratos.
+                            </p>
+
+                        </div>
+
+
+                    </aside>
+
+                </div>
+
+
+                <!-- PIE DEL GENERADOR -->
+
+                <div class="generator-footer">
+                    <span>POWERED BY HTML CANVAS + JAVASCRIPT</span>
+                    <span>MADE WITH ♡ BY WENDY</span>
+                </div>
+
+            </div>
+
+
+            <div class="lab-bottom reveal">
+
+                <span>✳ ALGORITMOS COMO HERRAMIENTAS CREATIVAS</span>
+
+                <span>DESIGN IS NEVER THE SAME TWICE.</span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             04. MULTIMEDIA
+        ====================================== -->
+
+        <section class="multimedia section" id="multimedia">
 
             <div class="section-heading reveal">
                 <span>03 / EXPERIMENTACIÓN</span>
                 <span>♡ EXPERIENCIA MULTIMEDIA</span>
             </div>
 
-            <div class="games-heading reveal">
 
-                <div>
-                    <span class="mini-label">MÁS ALLÁ DE LO VISUAL</span>
+            <div class="media-heading reveal">
 
-                    <h2>
-                        Escuchar, mirar<br>
-                        y <em>experimentar.</em>
-                    </h2>
-                </div>
+                <h2>
+                    Escuchar, mirar<br>
+                    y <em>experimentar.</em>
+                </h2>
 
-                <span class="game-icon">✿</span>
+                <p>
+                    El sonido y el movimiento también forman parte
+                    de mi universo creativo. Exploro cómo pueden
+                    complementar las experiencias visuales.
+                </p>
 
             </div>
 
-            <p class="multimedia-intro reveal">
-                El sonido y el video son herramientas importantes
-                dentro de mi proceso creativo. Me permiten construir
-                ambientes, comunicar ideas y complementar las experiencias
-                visuales que desarrollo.
-            </p>
-
 
             <div class="media-grid">
+
 
                 <!-- AUDIO -->
 
                 <article class="media-card reveal">
 
                     <div class="media-image">
+
                         <img
                             src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=900"
                             alt="Estudio de producción musical"
@@ -462,31 +628,25 @@
                         >
 
                         <span>AUDIO 001</span>
+
                     </div>
 
                     <div class="media-content">
 
                         <span class="media-category">
-                            EXPERIENCIA SONORA / AUDIO
+                            EXPERIENCIA SONORA
                         </span>
 
                         <h3>Creative Atmosphere</h3>
 
                         <p>
-                            Una pieza sonora para acompañar la exploración
-                            de ambientes, emociones y atmósferas creativas.
-                            Representa mi interés por integrar el sonido
-                            en proyectos multimedia.
+                            Experimentación sonora para construir
+                            ambientes y acompañar experiencias digitales.
                         </p>
-
-                        <div class="player-label">
-                            <i class="fa-solid fa-headphones"></i>
-                            ESCUCHA LA EXPERIENCIA
-                        </div>
 
                         <audio controls preload="metadata">
                             <source src="assets/audio/audio.mp3" type="audio/mpeg">
-                            Tu navegador no puede reproducir este audio.
+                            Tu navegador no soporta audio HTML5.
                         </audio>
 
                     </div>
@@ -499,37 +659,34 @@
                 <article class="media-card reveal">
 
                     <div class="media-image">
+
                         <img
                             src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=900"
-                            alt="Equipo de producción audiovisual"
+                            alt="Producción audiovisual"
                             loading="lazy"
                         >
 
                         <span>VIDEO 001</span>
+
                     </div>
 
                     <div class="media-content">
 
                         <span class="media-category">
-                            EXPERIENCIA VISUAL / VIDEO
+                            EXPERIENCIA VISUAL
                         </span>
 
                         <h3>Visual Experiments</h3>
 
                         <p>
-                            Una muestra audiovisual relacionada con la
-                            experimentación gráfica, la animación y la
-                            construcción de imágenes en movimiento.
+                            Una muestra de experimentación audiovisual,
+                            animación y construcción de imágenes
+                            en movimiento.
                         </p>
-
-                        <div class="player-label">
-                            <i class="fa-solid fa-film"></i>
-                            REPRODUCE EL VIDEO
-                        </div>
 
                         <video controls preload="metadata" playsinline>
                             <source src="assets/video/video.mp4" type="video/mp4">
-                            Tu navegador no puede reproducir este video.
+                            Tu navegador no soporta video HTML5.
                         </video>
 
                     </div>
@@ -538,16 +695,13 @@
 
             </div>
 
-            <p class="gallery-note">
-                ✳ CONTENIDO MULTIMEDIA DE MUESTRA.
-            </p>
-
         </section>
 
 
-        <!-- ================================= -->
-        <!-- CONTACTO -->
-        <!-- ================================= -->
+
+        <!-- =====================================
+             05. CONTACTO
+        ====================================== -->
 
         <section class="contact section" id="contact">
 
@@ -563,9 +717,8 @@
                 </h2>
 
                 <p class="contact-text">
-                    Si tienes una idea creativa, una propuesta multimedia
-                    o simplemente quieres conocer más sobre mis proyectos,
-                    puedes completar este formulario.
+                    Si tienes una idea creativa o una propuesta
+                    multimedia, puedes completar este formulario.
                 </p>
 
             </div>
@@ -590,7 +743,6 @@
                         id="nombre"
                         name="nombre"
                         placeholder="Escribe tu nombre"
-                        autocomplete="name"
                         required
                     >
 
@@ -608,7 +760,6 @@
                         id="correo"
                         name="correo"
                         placeholder="ejemplo@correo.com"
-                        autocomplete="email"
                         required
                     >
 
@@ -629,10 +780,10 @@
 
                         <option value="ilustracion">Ilustración digital</option>
                         <option value="modelado">Modelado 3D</option>
-                        <option value="videojuegos">Desarrollo de videojuegos</option>
+                        <option value="videojuegos">Videojuegos</option>
                         <option value="animacion">Animación</option>
                         <option value="diseno">Diseño multimedia</option>
-                        <option value="otro">Otro proyecto</option>
+                        <option value="otro">Otro</option>
 
                     </select>
 
@@ -670,14 +821,12 @@
 
                 <div class="form-group">
 
-                    <label for="mensaje">
-                        TU MENSAJE *
-                    </label>
+                    <label for="mensaje">TU MENSAJE *</label>
 
                     <textarea
                         id="mensaje"
                         name="mensaje"
-                        rows="6"
+                        rows="5"
                         placeholder="Cuéntame sobre tu idea..."
                         required
                     ></textarea>
@@ -688,10 +837,9 @@
                 <div class="form-notice">
                     <i class="fa-solid fa-circle-info"></i>
 
-                    FORMULARIO DEMOSTRATIVO: los datos ingresados
-                    no se almacenan ni se envían a ningún servidor.
-                    Utiliza únicamente información ficticia para
-                    realizar las pruebas.
+                    FORMULARIO DEMOSTRATIVO: los datos no se guardan
+                    ni se envían a ningún servidor. Utiliza únicamente
+                    información ficticia para las pruebas.
                 </div>
 
 
@@ -732,9 +880,7 @@
     </main>
 
 
-    <!-- ================================= -->
     <!-- FOOTER -->
-    <!-- ================================= -->
 
     <footer>
 
