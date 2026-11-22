@@ -1,0 +1,95 @@
+:root {
+    --fondo: #101010;
+    --fondo-secundario: #191919;
+    --tarjetas: #202020;
+    --rojo: #E63946;
+    --rojo-hover: #BD2633;
+    --texto: #F2F2F2;
+    --texto-secundario: #AAAAAA;
+    --bordes: #333333;
+}
+
+
+
+body {
+    background-color: #101010;
+    color: #F2F2F2;
+    font-family: Arial, sans-serif;
+}
+header{
+    display: flex;
+    align-items: center;
+    padding: 25px 8%;
+    border-bottom: 1px solid #333333;
+}
+.Nombre {
+    font-size: 22px;
+    font-weight: bold;
+    color: #F2F2F2;
+}
+.Nombre span{
+    color: #E63946;
+}
+.Inicio{
+    display:flex;
+    align-items: center;
+    padding: 60px 8%;
+    gap: 60px;
+}
+.Inicio-texto{
+    flex: 1;
+}
+.Inicio h1{
+    font-size: 60px;
+    line-height: 1.1;
+    margin: 25px 0;
+}
+.Inicio h1 span{
+    color: #E63946;
+}
+.Inicio p{
+    color: #aaaaaa;
+    line-height: 1.6;
+}
+.inicio-imagen {
+    flex: 1;
+    height: 400px;
+    background-color: #202020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #AAAAAA;
+}
+.yo{
+    padding: 25px 8%;
+    background-color: #202020;
+    line-height: 0.05;
+}
+.yo span{
+    color:#F2F2F2;
+}
+.yo h1{
+    color:#E63946;
+}
+.descripcion{
+
+    line-height: 1.6;
+    max-width: 544px;
+}
+.skills{
+    padding: 25px 8%;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:20px;
+    margin-top: 35px;
+}
+.skills p{
+    line-height: 1.2;
+}
+.habilidad{
+    text-align: center;
+    background-color: #202020;
+}
+.habilidad h2{
+    color:#E63946;
+}
