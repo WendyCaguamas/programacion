@@ -650,3 +650,24 @@ footer {
         padding: 14px;
     }
 }
+/* AJUSTE DE TAMAÑO DEL GENERADOR */
+
+.canvas-contenedor {
+    max-width: 750px;
+    padding: 18px;
+    margin: 0 auto;
+}
+
+.canvas-section {
+    padding: 55px 8%;
+}
+
+.canvas-botones {
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.canvas-botones button {
+    padding: 11px 17px;
+    font-size: 13px;
+}
