@@ -543,3 +543,110 @@ footer {
         width: 100%;
     }
 }
+
+/* =====================================
+   GENERADOR DE ARTE CON CANVAS
+===================================== */
+
+.canvas-section {
+    padding: 70px 8%;
+    background-color: var(--fondo);
+}
+
+.canvas-section .titulo-seccion {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.canvas-section .titulo-seccion h1 {
+    color: var(--texto);
+    margin-bottom: 12px;
+}
+
+.canvas-section .titulo-seccion h1 span {
+    color: var(--rojo);
+}
+
+.canvas-section .titulo-seccion p {
+    color: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+.canvas-contenedor {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: var(--tarjetas);
+    border: 1px solid var(--bordes);
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.canvas-contenedor:hover {
+    border-color: var(--rojo);
+}
+
+#miCanvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: #101010;
+    border: 1px solid var(--bordes);
+    border-radius: 8px;
+}
+
+/* BOTONES DEL GENERADOR */
+
+.canvas-botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.canvas-botones button {
+    padding: 13px 22px;
+    background-color: var(--rojo);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.canvas-botones button:hover {
+    background-color: var(--rojo-hover);
+    transform: translateY(-4px);
+}
+
+.canvas-botones button:active {
+    transform: scale(0.96);
+}
+
+/* ADAPTACION DEL CANVAS A CELULARES */
+
+@media (max-width: 768px) {
+
+    .canvas-section {
+        padding: 50px 6%;
+    }
+
+    .canvas-contenedor {
+        padding: 15px;
+    }
+
+    .canvas-botones {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .canvas-botones button {
+        width: 100%;
+        padding: 14px;
+    }
+}
