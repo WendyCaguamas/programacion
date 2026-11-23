@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,9 +16,9 @@
             <a href="#habilidades">Habilidades</a>
             <a href="#trabajos">Trabajos</a>
         </nav>
-<a href="../index.html" class="volver-equipo">
-    Volver al equipo
-</a>
+        <a href="../index.html" class="volver-equipo">
+            Volver al equipo
+        </a>
     </header>
 
     <section class="Inicio" id="inicio">
@@ -113,61 +114,84 @@
                     <span>Diseño / Photoshop</span>
                 </div>
             </div>
-                    <section class="experiencia">
-            <h1>Mi experiencia <span>multimedia</span></h1>
-            <p>La musica y el sonido son parte importante de mi inspiracion creativa.</p>
 
-            <h2>Audio</h2>
-            <audio controls>
-                <source src="audios/Benny Benassi - Satisfaction.mp3" type="audio/mpeg">
-                Tu navegador no soporta audio.
-            </audio>
+            <section class="experiencia">
+                <h1>Mi experiencia <span>multimedia</span></h1>
+                <p>La musica y el sonido son parte importante de mi inspiracion creativa.</p>
 
-            <h2>Video</h2>
-            <p>Me interesa la animacion y la produccion audiovisual.</p>
-        </section>
+                <h2>Audio</h2>
+                <audio controls>
+                    <source src="audios/Benny Benassi - Satisfaction.mp3" type="audio/mpeg">
+                    Tu navegador no soporta audio.
+                </audio>
+
+                <h2>Video</h2>
+                <p>Me interesa la animacion y la produccion audiovisual.</p>
+            </section>
 
         </div>
     </section>
+
     <section class="contacto">
-    <h1>Contacto</h1>
+        <h1>Contacto</h1>
 
-    <form>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" required>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
 
-        <label for="correo">Correo electronico:</label>
-        <input type="email" id="correo" required>
+            <label for="correo">Correo electronico:</label>
+            <input type="email" id="correo" required>
 
-        <label for="tipo">Tipo de proyecto:</label>
-        <select id="tipo" required>
-            <option value="">Selecciona una opcion</option>
-            <option>Diseño grafico</option>
-            <option>Animacion</option>
-            <option>Edicion de video</option>
-            <option>Desarrollo web</option>
-        </select>
+            <label for="tipo">Tipo de proyecto:</label>
+            <select id="tipo" required>
+                <option value="">Selecciona una opcion</option>
+                <option>Diseño grafico</option>
+                <option>Animacion</option>
+                <option>Edicion de video</option>
+                <option>Desarrollo web</option>
+            </select>
 
-        <p>Modalidad de colaboracion:</p>
+            <p>Modalidad de colaboracion:</p>
 
-        <label>
-            <input type="radio" name="modalidad" value="presencial" required>
-            Presencial
-        </label>
+            <label>
+                <input type="radio" name="modalidad" value="presencial" required>
+                Presencial
+            </label>
 
-        <label>
-            <input type="radio" name="modalidad" value="virtual">
-            Virtual
-        </label>
+            <label>
+                <input type="radio" name="modalidad" value="virtual">
+                Virtual
+            </label>
 
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" required></textarea>
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" required></textarea>
 
-        <button type="submit">Enviar</button>
+            <button type="submit">Enviar</button>
 
-        <p>Formulario demostrativo. No envia ni almacena informacion.</p>
-    </form>
-</section>
+            <p>Formulario demostrativo. No envia ni almacena informacion.</p>
+        </form>
+    </section>
+
+    <!-- SECCION CANVAS -->
+    <section class="canvas-section" id="canvas">
+        <div class="titulo-seccion">
+            <h1>Mi arte <span>generativo</span></h1>
+            <p>Experimentación visual mediante JavaScript y Canvas.</p>
+        </div>
+
+        <div class="canvas-contenedor">
+
+            <canvas id="miCanvas" width="900" height="600"></canvas>
+
+            <div class="canvas-botones">
+                <button id="paleta1">Paleta 1</button>
+                <button id="paleta2">Paleta 2</button>
+                <button id="generar">Generar composición</button>
+                <button id="guardar">Guardar imagen</button>
+            </div>
+
+        </div>
+    </section>
 
     <footer>
         <div class="footer-contenido">
@@ -184,6 +208,9 @@
             <p>© 2026 Cristopher Barrera - Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- CONEXION CON JAVASCRIPT -->
+    <script src="canvas.js"></script>
 
 </body>
 </html>
