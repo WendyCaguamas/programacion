@@ -175,11 +175,62 @@
 
     </main>
 
-    <footer>
+
+<footer>
+
+    <div class="footer-top">
         <a href="#" class="logo">SMARTLESS DESIGN<span>®</span></a>
         <span>HECHO CON IDEAS Y CAFÉ.</span>
         <span>© 2026 — MULTIMEDIA TEAM</span>
-    </footer>
+    </div>
+
+    <div class="footer-feedback">
+
+        <div class="feedback-heading">
+            <span class="eyebrow">02 / TU OPINIÓN IMPORTA</span>
+            <h2>Déjanos un <span>comentario.</span></h2>
+            <p>Nos encantaría conocer tu opinión sobre nuestro trabajo.</p>
+        </div>
+
+        <form class="feedback-form" id="feedbackForm">
+
+            <label for="comment">TU MENSAJE</label>
+
+            <textarea
+                id="comment"
+                name="comment"
+                placeholder="Escribe aquí tu comentario..."
+                required
+            ></textarea>
+
+            <div class="feedback-bottom">
+
+                <label for="fileUpload" class="upload-button">
+                    <span>＋</span> ADJUNTAR ARCHIVO
+                </label>
+
+                <input
+                    type="file"
+                    id="fileUpload"
+                    name="attachment"
+                    accept="image/*,.pdf"
+                    hidden
+                >
+
+                <span id="fileName">NINGÚN ARCHIVO SELECCIONADO</span>
+
+                <button type="submit" class="send-button">
+                    ENVIAR COMENTARIO ↗
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</footer>
+
 
     <script src="script.js"></script>
 </body>
