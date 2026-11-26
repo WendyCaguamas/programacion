@@ -7,6 +7,37 @@
     --line: #34352f;
 }
 
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 45px;
+    padding-bottom: 50px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: white;
+    color: black;
+    transform: translateY(-6px);
+}
+
+
 * {
     margin: 0;
     padding: 0;
