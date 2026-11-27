@@ -225,49 +225,79 @@
             
  <script>
 
+
+<script>
+
 // CONECTAR CON EL CANVAS
 
 const canvas = document.getElementById("miCanvas");
 const ctx = canvas.getContext("2d");
 
-// FONDO
+// FONDO ESPACIAL
 
 ctx.fillStyle = "#060623";
 ctx.fillRect(0, 0, 600, 400);
 
-// CIRCULO 1
+// ESTRELLAS
+
+for (let i = 0; i < 100; i++) {
+
+    let x = Math.random() * 600;
+    let y = Math.random() * 400;
+    let tamaño = Math.random() * 2 + 1;
+
+    ctx.beginPath();
+    ctx.arc(x, y, tamaño, 0, Math.PI * 2);
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fill();
+
+}
+
+// CENTRO DE LA GALAXIA
+
+const centroX = 300;
+const centroY = 200;
+
+const brillo = ctx.createRadialGradient(
+    centroX, centroY, 5,
+    centroX, centroY, 90
+);
+
+brillo.addColorStop(0, "#FFFFFF");
+brillo.addColorStop(0.3, "#00D6C9");
+brillo.addColorStop(0.6, "#7047A8");
+brillo.addColorStop(1, "rgba(120, 1, 41, 0)");
+
+ctx.fillStyle = brillo;
 
 ctx.beginPath();
-ctx.arc(150, 150, 65, 0, Math.PI * 2);
-ctx.fillStyle = "#780129";
+ctx.arc(centroX, centroY, 90, 0, Math.PI * 2);
 ctx.fill();
 
-// CIRCULO 2
+// BRAZOS ESPIRALES
 
-ctx.beginPath();
-ctx.arc(300, 200, 90, 0, Math.PI * 2);
-ctx.fillStyle = "#070735";
-ctx.fill();
+for (let brazo = 0; brazo < 2; brazo++) {
 
-// CIRCULO 3
+    for (let i = 0; i < 100; i++) {
 
-ctx.beginPath();
-ctx.arc(450, 130, 55, 0, Math.PI * 2);
-ctx.fillStyle = "#00D6C9";
-ctx.fill();
+        let angulo = i * 0.12 + brazo * Math.PI;
+        let radio = i * 1.2;
 
-// LINEAS DECORATIVAS
+        let x = centroX + Math.cos(angulo) * radio;
+        let y = centroY + Math.sin(angulo) * radio * 0.55;
 
-ctx.strokeStyle = "#FFFFFF";
-ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(x, y, 2, 0, Math.PI * 2);
 
-ctx.beginPath();
-ctx.moveTo(150, 150);
-ctx.lineTo(300, 200);
-ctx.lineTo(450, 130);
-ctx.stroke();
+        ctx.fillStyle = i % 2 === 0 ? "#00D6C9" : "#FF65B3";
+        ctx.fill();
 
-</script>           
+    }
+
+}
+
+</script>
+>           
             <!-- VISOR DE IMAGENES -->
 
 <div id="visor" class="visor">
