@@ -530,4 +530,10 @@ footer {
 .contenedor-redes img:hover {
     transform: scale(1.2);
 }
+/* TITULO CANVAS GALAXY */
+
+#galeria h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
