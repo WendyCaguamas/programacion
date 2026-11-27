@@ -218,6 +218,7 @@
                 </figure>
 
             </div>
+            
      <!-- Canvas -->
             <canvas id="miCanvas" width="600" height="400">
     Tu navegador no admite Canvas.
@@ -229,7 +230,8 @@
 <script>
 
 
-<!-- CANVAS -->
+<!-- CANVAS: GALAXIA -->
+
 <canvas id="miCanvas" width="600" height="400">
     Tu navegador no admite Canvas.
 </canvas>
@@ -260,6 +262,53 @@ for (let i = 0; i < 100; i++) {
     ctx.fill();
 
 }
+
+// CENTRO DE LA GALAXIA
+
+const centroX = 300;
+const centroY = 200;
+
+const brillo = ctx.createRadialGradient(
+    centroX, centroY, 5,
+    centroX, centroY, 90
+);
+
+brillo.addColorStop(0, "#FFFFFF");
+brillo.addColorStop(0.3, "#00D6C9");
+brillo.addColorStop(0.6, "#7047A8");
+brillo.addColorStop(1, "rgba(120, 1, 41, 0)");
+
+ctx.fillStyle = brillo;
+
+ctx.beginPath();
+ctx.arc(centroX, centroY, 90, 0, Math.PI * 2);
+ctx.fill();
+
+// BRAZOS ESPIRALES
+
+for (let brazo = 0; brazo < 2; brazo++) {
+
+    for (let i = 0; i < 100; i++) {
+
+        let angulo = i * 0.12 + brazo * Math.PI;
+        let radio = i * 1.2;
+
+        let x = centroX + Math.cos(angulo) * radio;
+        let y = centroY + Math.sin(angulo) * radio * 0.55;
+
+        ctx.beginPath();
+        ctx.arc(x, y, 2, 0, Math.PI * 2);
+
+        ctx.fillStyle = i % 2 === 0 ? "#00D6C9" : "#FF65B3";
+        ctx.fill();
+
+    }
+
+}
+
+</script>
+
+
 
 // CENTRO DE LA GALAXIA
 
