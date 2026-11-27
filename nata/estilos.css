@@ -506,4 +506,28 @@ footer {
         height: 250px;
     }
 }
+/* REDES SOCIALES */
+
+#redes-sociales {
+    text-align: center;
+}
+
+.contenedor-redes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.contenedor-redes img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.contenedor-redes img:hover {
+    transform: scale(1.2);
+}
 
